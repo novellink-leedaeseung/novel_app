@@ -14,10 +14,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    String test =
-        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
-    var split = test.split('s');
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -42,14 +38,58 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          // 혈압, 체중
           Expanded(
             child: ListView(
+              padding: EdgeInsets.zero,
               children: [
-                for (var items in split)
-                  TextButton(onPressed: () {}, child: Text("${items}")),
+                SizedBox(
+                  height: 90,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("공지사항"),
+                        Text("근로자의 날 오픈기념으로 이벤트 진행합니다!"),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
+          // 하단 바
+          Padding(
+            padding: const EdgeInsets.only(left: 44.92, right: 42),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset("assets/images/icon/home.png"),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset("assets/images/icon/combined-shape.png"),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset("assets/images/icon/calendar.png"),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset("assets/images/icon/setting.png"),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 34),
         ],
       ),
     );

@@ -52,7 +52,7 @@ class UserProfile extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: Image.asset('assets/images/icon/user_group.png'),
+                        icon: Image.asset('assets/images/icon/user-group.png'),
                         color: Colors.white,
                         iconSize: 24,
                       ),
