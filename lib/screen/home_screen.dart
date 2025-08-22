@@ -14,25 +14,43 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    String test =
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
+    var split = test.split('s');
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Expanded(
-        child: Container(
-          width: double.infinity,
-          height: 200,
-          color: Color(0xFF227EFF),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IphoneTop(),
-              // 프로필 사진, 사용자 이름, 사람모양, 옵션
-              UserProfile(),
-              // 환영메시지, 기업회원 버튼
-              WelcomeBanner(),
-            ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            child: Container(
+              width: double.infinity,
+              height: 200,
+              color: Color(0xFF227EFF),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // 다이나믹 아일랜드 및 노치
+                  IphoneTop(),
+                  // 프로필 사진, 사용자 이름, 사람모양, 옵션
+                  UserProfile(),
+                  // 환영메시지, 기업회원 버튼
+                  WelcomeBanner(),
+                ],
+              ),
+            ),
           ),
-        ),
+          Expanded(
+            child: ListView(
+              children: [
+                for (var items in split)
+                  TextButton(onPressed: () {}, child: Text("${items}")),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
