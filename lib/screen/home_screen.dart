@@ -40,8 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          // 스크롤바
+          Expanded(
+            child: ListView(padding: EdgeInsets.zero, children: [Notice(),Notice()]),
+          ),
           // 공지사항
-          Notice(),
           // 하단 바
           BottomBar(),
           SizedBox(height: 34),
