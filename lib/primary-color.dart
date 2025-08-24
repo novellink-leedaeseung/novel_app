@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 
 class PrimaryColor {
+  static Color cloudyGray = Color(0xffD9D9D9);
   static Color gray = Color(0xff8C8C8C);
   static Color blue = Color(0xff227EFF);
   static Color cloudyBlue = Color(0xffB2D7FF);
