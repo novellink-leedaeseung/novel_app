@@ -71,9 +71,15 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                     children: [
                       Text(
                         "2025.08.15",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      IconButton(onPressed: () {}, icon: Icon(Icons.date_range)),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.date_range),
+                      ),
                     ],
                   ),
                 ),
@@ -93,7 +99,10 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                             child: Align(
                               alignment: Alignment.bottomRight,
                               child: Padding(
-                                padding: const EdgeInsets.only(bottom: 10, right: 10),
+                                padding: const EdgeInsets.only(
+                                  bottom: 10,
+                                  right: 10,
+                                ),
                                 child: Text(
                                   "고혈압 1기",
                                   style: TextStyle(
@@ -120,7 +129,10 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 10, left: 10),
+                                padding: const EdgeInsets.only(
+                                  top: 10,
+                                  left: 10,
+                                ),
                                 child: Container(
                                   decoration: heartBoxDecoration(
                                     color: PrimaryColor.pink,
@@ -201,7 +213,10 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 10, left: 10),
+                                padding: const EdgeInsets.only(
+                                  top: 10,
+                                  left: 10,
+                                ),
                                 child: Container(
                                   decoration: heartBoxDecoration(
                                     color: PrimaryColor.pink,
@@ -275,7 +290,10 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 10, left: 10),
+                                  padding: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 10,
+                                  ),
                                   child: Container(
                                     decoration: heartBoxDecoration(
                                       color: PrimaryColor.cloudyBlue,
@@ -302,7 +320,8 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Text(
                                             "128",
@@ -347,9 +366,12 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                   child: SizedBox(
                     width: double.infinity,
                     height: 210,
-                    child: Expanded(child: Container(color: PrimaryColor.cloudyGray)),
+                    child: Expanded(
+                      child: Container(color: PrimaryColor.cloudyGray),
+                    ),
                   ),
                 ),
+
                 // 최근, 월, 년
                 Container(
                   width: double.infinity,
@@ -359,6 +381,37 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                 Container(
                   height: 166,
                   color: PrimaryColor.cloudyGray,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "정상 혈압 범위는 ",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            "120/80",
+                            style: TextStyle(color: PrimaryColor.blue, fontWeight: FontWeight.w600, fontSize: 16),
+                          ),
+                          Text("mmHg", style: TextStyle(color: Colors.black)),
+                          Text(
+                            " 미만 입니다.",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text("혈압은 고혈압1기 입니다."),
+                      Text("수축기 혈압은 적정범위까지 -61 남았습니다"),
+                      Text("이완기 혈압은 적정범위까지 -9 남았습니다."),
+                    ],
+                  ),
                 ),
               ],
             ),
