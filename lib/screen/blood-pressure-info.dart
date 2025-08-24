@@ -118,7 +118,7 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                             decoration: heartBoxDecoration(),
                             width: 38,
                             height: 38,
-                            child: Image.asset("assets/images/icon/heart.png"),
+                            child: Image.asset("assets/images/icon/heart-red.png"),
                           ),
                         ),
                       ),
@@ -174,22 +174,151 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
               ),
             ],
           ),
+          // 수축기 혈압, 이완기 혈압
           Padding(
             padding: const EdgeInsets.only(top: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // 수축기 혈압
                 Container(
                   width: 156,
                   height: 125,
                   decoration: grayBoxDecoration(),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10, left: 10),
+                          child: Container(
+                            decoration: heartBoxDecoration(),
+                            width: 38,
+                            height: 38,
+                            child: Image.asset("assets/images/icon/heart-red.png"),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 16,
+                          bottom: 10,
+                          right: 3,
+                          left: 60,
+                        ),
+                        child: SizedBox(
+                          width: 76,
+                          height: 49,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "148",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Text(
+                                    " bpm",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      color: PrimaryColor.gray,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "수축기 혈압",
+                                style: TextStyle(
+                                  color: PrimaryColor.gray,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
+                  // 이완기 혈압
                   child: Container(
                     width: 156,
                     height: 125,
                     decoration: grayBoxDecoration(),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10, left: 10),
+                            child: Container(
+                              decoration: heartBoxDecoration(color: PrimaryColor.cloudyBlue),
+                              width: 38,
+                              height: 38,
+                              child: Image.asset(
+                                "assets/images/icon/heart-blue.png",
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 16,
+                            bottom: 10,
+                            right: 3,
+                            left: 60,
+                          ),
+                          child: SizedBox(
+                            width: 76,
+                            height: 49,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "128",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Text(
+                                      " bpm",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 14,
+                                        color: PrimaryColor.gray,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  "이완기 혈압",
+                                  style: TextStyle(
+                                    color: PrimaryColor.gray,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -200,9 +329,11 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
     );
   }
 
-  BoxDecoration heartBoxDecoration() {
+  BoxDecoration heartBoxDecoration({
+    color = Colors.pink
+}) {
     return BoxDecoration(
-      color: PrimaryColor.pink,
+      color: color,
       borderRadius: BorderRadius.circular(12),
     );
   }
