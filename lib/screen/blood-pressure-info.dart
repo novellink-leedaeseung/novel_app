@@ -71,21 +71,22 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
             ),
           ),
           // 고혈압 1기, 맥박
-          Padding(
-            padding: const EdgeInsets.only(left: 24, top: 15),
-            child: SizedBox(
-              child: Row(
-                children: [
-                  // 고혈압 1기
-                  Container(
-                    decoration: grayBoxDecoration(),
-                    width: 156,
-                    height: 125,
-                    child: Column(
-                      children: [
-                        Text("고혈압 수치"),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 53, left: 65),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // 고혈압 1기
+              Container(
+                decoration: grayBoxDecoration(),
+                width: 156,
+                height: 125,
+                child: Column(
+                  children: [
+                    Text("고혈압 수치"),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 10, right: 10),
                           child: Text(
                             "고혈압 1기",
                             style: TextStyle(
@@ -95,84 +96,103 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                             ),
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                  // 맥박
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 24),
-                    child: Container(
-                      decoration: grayBoxDecoration(),
-                      width: 156,
-                      height: 125,
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 10),
-                              child: Container(
-                                decoration: heartBoxDecoration(),
-                                width: 38,
-                                height: 38,
-                                child: Image.asset(
-                                  "assets/images/icon/heart.png",
-                                ),
-                              ),
-                            ),
+                  ],
+                ),
+              ),
+              // 맥박
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Container(
+                  decoration: grayBoxDecoration(),
+                  width: 156,
+                  height: 125,
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10, left: 10),
+                          child: Container(
+                            decoration: heartBoxDecoration(),
+                            width: 38,
+                            height: 38,
+                            child: Image.asset("assets/images/icon/heart.png"),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 16,
-                              bottom: 10,
-                              right: 3,
-                              left: 60,
-                            ),
-                            child: SizedBox(
-                              width: 76,
-                              height: 49,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 16,
+                          bottom: 10,
+                          right: 3,
+                          left: 60,
+                        ),
+                        child: SizedBox(
+                          width: 76,
+                          height: 49,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        "70",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                      Text(
-                                        " bpm",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 14,
-                                          color: PrimaryColor.gray,
-                                        ),
-                                      ),
-                                    ],
+                                  Text(
+                                    "70",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
                                   Text(
-                                    "맥박",
+                                    " bpm",
                                     style: TextStyle(
-                                      color: PrimaryColor.gray,
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14,
+                                      color: PrimaryColor.gray,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
+                              Text(
+                                "맥박",
+                                style: TextStyle(
+                                  color: PrimaryColor.gray,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 156,
+                  height: 125,
+                  decoration: grayBoxDecoration(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Container(
+                    width: 156,
+                    height: 125,
+                    decoration: grayBoxDecoration(),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
