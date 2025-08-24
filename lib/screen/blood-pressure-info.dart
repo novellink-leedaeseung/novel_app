@@ -115,7 +115,7 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10, left: 10),
                           child: Container(
-                            decoration: heartBoxDecoration(),
+                            decoration: heartBoxDecoration(color: PrimaryColor.pink),
                             width: 38,
                             height: 38,
                             child: Image.asset("assets/images/icon/heart-red.png"),
@@ -192,7 +192,7 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10, left: 10),
                           child: Container(
-                            decoration: heartBoxDecoration(),
+                            decoration: heartBoxDecoration(color: PrimaryColor.pink),
                             width: 38,
                             height: 38,
                             child: Image.asset("assets/images/icon/heart-red.png"),
