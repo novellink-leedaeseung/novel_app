@@ -70,13 +70,13 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
               ],
             ),
           ),
-          // 고혈압 1기
+          // 고혈압 1기, 맥박
           Padding(
             padding: const EdgeInsets.only(left: 24, top: 15),
             child: SizedBox(
               child: Row(
                 children: [
-                  // 고혈압 1기, 맥박
+                  // 고혈압 1기
                   Container(
                     decoration: grayBoxDecoration(),
                     width: 156,
