@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:novel/component/bottom-bar.dart';
 import 'package:novel/component/text-colors.dart';
 import 'package:novel/component/welcome-banner.dart';
@@ -77,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go('/blood-pressure/info');
+                        },
                         child: Column(
                           children: [
                             Padding(
