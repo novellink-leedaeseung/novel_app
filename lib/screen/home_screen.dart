@@ -5,6 +5,7 @@ import 'package:novel/component/text-colors.dart';
 import 'package:novel/component/welcome-banner.dart';
 import 'package:novel/iPhone_top.dart';
 import 'package:novel/primary-color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../component/notice.dart';
 import '../component/user-profile.dart';
@@ -19,19 +20,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(375, 812));
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             child: Container(
-              width: double.infinity,
-              height: 200,
               color: Color(0xFF227EFF),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // 다이나믹 아일랜드 및 노치
                   IphoneTop(),
