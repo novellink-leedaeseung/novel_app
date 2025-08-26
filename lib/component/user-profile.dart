@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // 프로필 사진, 사용자 이름, 사람모양, 옵션
 class UserProfile extends StatelessWidget {
@@ -23,15 +24,14 @@ class UserProfile extends StatelessWidget {
                 SizedBox(
                   width: 54.w,
                   height: 54.w,
-                  child:ClipOval(
+                  child: ClipOval(
                     child: Image.asset(
                       'assets/images/profile/profile.jpg',
                       width: 100,
                       height: 100,
                       fit: BoxFit.fill,
                     ),
-                  )
-
+                  ),
                 ),
                 Container(
                   width: 79.w,
@@ -43,18 +43,19 @@ class UserProfile extends StatelessWidget {
                         "노블이",
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontFamily: "Pretendard",
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
+                          height: 1.6.h,
                         ),
                       ),
-                      SizedBox(
-                        width: 24.w,
-                        height: 23.25.h,
-                        child: Image.asset(
-                          'assets/images/icon/downward.png',
-                          width: 14,
-                          height: 6.78,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 9),
+                        child: SvgPicture.asset(
+                          'assets/icon/downward.svg',
+                          width: 14.w,
+                          height: 6.78.h,
                         ),
                       ),
                     ],
@@ -70,12 +71,7 @@ class UserProfile extends StatelessWidget {
             child: IconButton(
               padding: EdgeInsets.only(),
               onPressed: () {},
-              icon: Image.asset(
-                'assets/images/icon/user-group.png',
-                width: 24.w,
-                height: 24.h,
-              ),
-              color: Colors.white,
+              icon: SvgPicture.asset('assets/icon/user-group.svg')
             ),
           ),
           SizedBox(
@@ -84,7 +80,7 @@ class UserProfile extends StatelessWidget {
             child: IconButton(
               padding: EdgeInsets.zero,
               onPressed: () {},
-              icon: Image.asset('assets/images/icon/control.png'),
+              icon: SvgPicture.asset('assets/icon/control.svg'),
               color: Colors.white,
             ),
           ),
