@@ -18,33 +18,46 @@ class WelcomeBanner extends StatelessWidget {
             width: 190.w,
             height: 42.h,
             child: Text(
-              "메디터치 오신 걸 환영합니다. 스마트하게 건강 관리하세요!",
+              "메디터치에 오신 걸 환영합니다. 스마트하게 건강 관리하세요!",
+              softWrap: true,
               style: TextStyle(
+                fontFamily: "Pretendard",
                 fontSize: 16,
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
+                height: 1.3125, // 행간
+                letterSpacing: -0.4, // 자간
               ),
             ),
           ),
 
-          SizedBox(
-            width: 88.w,
-            height: 24.h,
-            child: Row(
-              children: [
-                Image.asset(
-                  "assets/images/icon/office.png",
-                  width: 24.w,
-                  height: 24.h,
-                ),
-                Text(
-                  "기업회원 전환",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+          Container(
+            margin: EdgeInsets.only(left: 49, right: 24),
+            child: SizedBox(
+              width: 88.w,
+              height: 24.h,
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/icon/office.png",
+                    width: 24.w,
+                    height: 24.h,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: Text(
+                      "기업회원 전환",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: "Pretendard",
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.5
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
