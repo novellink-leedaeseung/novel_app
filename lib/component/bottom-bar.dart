@@ -12,19 +12,19 @@ class BottomBar extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {},
-            icon: Image.asset("assets/images/icon/home.png"),
+            icon: Image.asset("assets/icon/home.png"),
           ),
           IconButton(
             onPressed: () {},
-            icon: Image.asset("assets/images/icon/combined-shape.png"),
+            icon: Image.asset("assets/icon/combined-shape.png"),
           ),
           IconButton(
             onPressed: () {},
-            icon: Image.asset("assets/images/icon/calendar.png"),
+            icon: Image.asset("assets/icon/calendar.png"),
           ),
           IconButton(
             onPressed: () {},
-            icon: Image.asset("assets/images/icon/setting.png"),
+            icon: Image.asset("assets/icon/setting.png"),
           ),
         ],
       ),
