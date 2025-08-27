@@ -4,6 +4,8 @@ import 'package:novel/component/bottom-bar.dart';
 import 'package:novel/iPhone_top.dart';
 import 'package:novel/primary-color.dart';
 import 'package:novel/screen/home_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class BloodPressureInfo extends StatefulWidget {
   const BloodPressureInfo({super.key});

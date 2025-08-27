@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:novel/component/bottom-bar.dart';
 import 'package:novel/component/text-colors.dart';
@@ -53,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     horizontal: 24,
                   ),
                   child: SizedBox(
-                    width: 327,
-                    height: 115,
+                    width: 327.w,
+                    height: 115.h,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -87,70 +88,99 @@ class _HomeScreenState extends State<HomeScreen> {
                                 right: 12,
                                 top: 14,
                               ),
-                              child: SizedBox(
-                                width: double.infinity,
-                                height: 26,
-                                child: Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Row(
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 67.w,
+                                        height: 32.h,
+                                        child: Row(
                                           children: [
-                                            Image.asset(
-                                              "assets/images/icon/blood-pressure.png",
-                                              width: 24,
-                                              height: 16,
-                                            ),
-                                            Text(
-                                              "혈압",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w700,
-                                                color: Colors.black,
+                                            SizedBox(
+                                              width: 24.w,
+                                              height: 24.h,
+                                              child: Padding(
+                                                padding: const EdgeInsets.symmetric(
+                                                  vertical: 4,
+                                                ),
+                                                child: Image.asset(
+                                                  "assets/icon/heart-blood.png",
+                                                  width: 24.w,
+                                                  height: 16.h,
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(left: 4),
-                                              child: Image.asset(
-                                                "assets/images/icon/ellipse.png",
+                                              padding: const EdgeInsets.only(left: 4),
+                                              child: Text(
+                                                "혈압",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w700,
+                                                  fontFamily: "Pretendard",
+                                                  color: Colors.black,
+                                                  height: 32/16,
+                                                  letterSpacing: -0.4,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 4, top: 12.5, bottom: 12.5),
+                                              child: SvgPicture.asset(
+                                                "assets/icon/ellipse.svg",
+                                                width: 7.w,
+                                                height: 7.h,
                                               ),
                                             ),
                                           ],
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            left: 6,
-                                          ),
-                                          child: Text(
-                                            "고혈압1기",
-                                            style: TextStyle(
-                                              color: Color(0xffC7503D),
-                                            ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 6,
+                                        ),
+                                        child: Text(
+                                          "고혈압1기",
+                                          style: TextStyle(
+                                            color: Color(0xffC7503D),
+                                            fontFamily: "Pretendard",
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 10,
+                                            height: 6/10,
+                                            letterSpacing: 0
                                           ),
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.zero,
-                                          child: SizedBox(
-                                            // width: 60,
-                                            width:
-                                                MediaQuery.of(
-                                                  context,
-                                                ).size.width *
-                                                0.5,
-                                            height: 11,
-                                            child: Align(
-                                              alignment: Alignment.topRight,
-                                              child: Text(
-                                                "2025.08.15",
-                                                style: TextStyle(fontSize: 10, color: PrimaryColor.gray),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.zero,
+                                        child: SizedBox(
+                                          // width: 60,
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.5,
+                                          height: 11,
+                                          child: Align(
+                                            alignment: Alignment.topRight,
+                                            child: Text(
+                                              "2025.08.15",
+                                              style: TextStyle(
+                                                color: Color(0xff626262),
+                                                fontFamily: "Pretendard",
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                height: 6/10,
+                                                letterSpacing: 0,
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                             Row(
@@ -160,15 +190,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                     left: 0,
                                     top: 10,
                                   ),
-                                  // padding: const EdgeInsets.only(),
                                   child: SizedBox(
                                     width: 127,
                                     height: 48,
                                     child: Column(
                                       children: [
-                                        TextWidgetColors.grayTextWidget(
-                                          text: '수축기 혈압',
-                                          color: PrimaryColor.gray,
+                                        Text(
+                                          "수축기 혈압",
+                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
+
                                         ),
                                         Text(
                                           '148 mmHg',
@@ -189,9 +219,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 48,
                                     child: Column(
                                       children: [
-                                        TextWidgetColors.grayTextWidget(
-                                          text: '이완기 혈압',
-                                          color: PrimaryColor.gray,
+                                        Text(
+                                          "이완기 혈압",
+                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
                                         ),
                                         Text(
                                           '88 mmHg',
@@ -212,9 +242,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 48,
                                     child: Column(
                                       children: [
-                                        TextWidgetColors.grayTextWidget(
-                                          text: '맥박',
-                                          color: PrimaryColor.gray,
+                                        Text(
+                                          "맥박",
+                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
                                         ),
                                         Text(
                                           '70 bpm',
@@ -241,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           // 하단 바
           BottomBar(),
-          SizedBox(height: 34),
+          SizedBox(height: 34.h),
         ],
       ),
     );
