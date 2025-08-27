@@ -11,6 +11,8 @@ class PrimaryColor {
   static Color pink = Color(0xffFFC0CC);
   static Color orange = Color(0xffE5621C);
   static Color white = Colors.white;
+  static Color black = Color(0xff111111);
+
 
 
 }

@@ -101,9 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                               width: 24.w,
                                               height: 24.h,
                                               child: Padding(
-                                                padding: const EdgeInsets.symmetric(
-                                                  vertical: 4,
-                                                ),
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      vertical: 4,
+                                                    ),
                                                 child: Image.asset(
                                                   "assets/icon/heart-blood.png",
                                                   width: 24.w,
@@ -112,7 +113,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(left: 4),
+                                              padding: const EdgeInsets.only(
+                                                left: 4,
+                                              ),
                                               child: Text(
                                                 "혈압",
                                                 style: TextStyle(
@@ -120,13 +123,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   fontWeight: FontWeight.w700,
                                                   fontFamily: "Pretendard",
                                                   color: Colors.black,
-                                                  height: 32/16,
+                                                  height: 32 / 16,
                                                   letterSpacing: -0.4,
                                                 ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(left: 4, top: 12.5, bottom: 12.5),
+                                              padding: EdgeInsets.only(
+                                                left: 4,
+                                                top: 12.5,
+                                                bottom: 12.5,
+                                              ),
                                               child: SvgPicture.asset(
                                                 "assets/icon/ellipse.svg",
                                                 width: 7.w,
@@ -137,9 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 6,
-                                        ),
+                                        padding: const EdgeInsets.only(left: 6),
                                         child: Text(
                                           "고혈압1기",
                                           style: TextStyle(
@@ -147,8 +152,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             fontFamily: "Pretendard",
                                             fontWeight: FontWeight.w400,
                                             fontSize: 10,
-                                            height: 6/10,
-                                            letterSpacing: 0
+                                            height: 6 / 10,
+                                            letterSpacing: 0,
                                           ),
                                         ),
                                       ),
@@ -171,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 fontFamily: "Pretendard",
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 10,
-                                                height: 6/10,
+                                                height: 6 / 10,
                                                 letterSpacing: 0,
                                               ),
                                             ),
@@ -183,79 +188,220 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 3),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(
+                                      left: 22,
+                                      right: 46,
+                                    ),
+                                    width: 60.w,
+                                    height: 20.h,
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      "수축기 혈압",
+                                      style:
+                                          TextStyleCustom.homeBloodBoxTextStyle(),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 60.w,
+                                    height: 20.h,
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      "이완기혈압",
+                                      style:
+                                          TextStyleCustom.homeBloodBoxTextStyle(),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 60.w,
+                                    height: 20.h,
+                                    margin: EdgeInsets.only(left: 51),
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      "맥박",
+                                      style:
+                                          TextStyleCustom.homeBloodBoxTextStyle(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 0,
-                                    top: 10,
-                                  ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 12.5),
+                                  width: 79.w,
+                                  height: 22.h,
                                   child: SizedBox(
-                                    width: 127,
-                                    height: 48,
-                                    child: Column(
+                                    child: Row(
                                       children: [
                                         Text(
-                                          "수축기 혈압",
-                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
-
+                                          "148",
+                                          style:
+                                              TextStyleCustom.homeBloodTextNumber(),
                                         ),
                                         Text(
-                                          '148 mmHg',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 19,
-                                          ),
+                                          " mmHg",
+                                          style:
+                                              TextStyleCustom.homeBloodTextmmHg(),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                Container(
+                                  margin: EdgeInsets.only(left: 32),
+                                  width: 79.w,
+                                  height: 22.h,
                                   child: SizedBox(
-                                    width: 127,
-                                    height: 48,
-                                    child: Column(
+                                    child: Row(
                                       children: [
                                         Text(
-                                          "이완기 혈압",
-                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
+                                          "88",
+                                          style:
+                                              TextStyleCustom.homeBloodTextNumber(),
                                         ),
                                         Text(
-                                          '88 mmHg',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 19,
-                                          ),
+                                          " mmHg",
+                                          style:
+                                              TextStyleCustom.homeBloodTextmmHg(),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                // mmHg 혈압
+                                Container(
+                                  margin: EdgeInsets.only(left: 32),
+                                  width: 79.w,
+                                  height: 22.h,
                                   child: SizedBox(
-                                    width: 100,
-                                    height: 48,
-                                    child: Column(
+                                    child: Row(
                                       children: [
                                         Text(
-                                          "맥박",
-                                          style: TextWidgetColors.homeBloodBoxTextStyle(),
+                                          "70",
+                                          style:
+                                              TextStyleCustom.homeBloodTextNumber(),
                                         ),
                                         Text(
-                                          '70 bpm',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 19,
-                                          ),
+                                          " bpm",
+                                          style:
+                                              TextStyleCustom.homeBloodTextmmHg(),
                                         ),
                                       ],
                                     ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            // 전에 측정하고 최근에 측정한 값 비교
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 28, top: 4),
+                                  width: 48.w,
+                                  height: 8.h,
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 8.w,
+                                        height: 8.h,
+                                        child: SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 4,
+                                          top: 1,
+                                          bottom: 1,
+                                        ),
+                                        child: Text(
+                                          "6.0 mmHg",
+                                          style: TextStyle(
+                                            fontSize: 8,
+                                            fontFamily: "Pretendard",
+                                            fontWeight: FontWeight.w400,
+                                            height: 6/8,
+                                            letterSpacing: -0.4, // -2.5%
+                                            color: Color(0xffFF7F74),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 67, top: 4),
+                                  width: 48.w,
+                                  height: 8.h,
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 8.w,
+                                        height: 8.h,
+                                        child: SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 4,
+                                          top: 1,
+                                          bottom: 1,
+                                        ),
+                                        child: Text(
+                                          "6.0 mmHg",
+                                          style: TextStyle(
+                                            fontSize: 8,
+                                            fontFamily: "Pretendard",
+                                            fontWeight: FontWeight.w400,
+                                            height: 6/8,
+                                            letterSpacing: -0.4, // -2.5%
+                                            color: Color(0xffFF7F74),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 67, top: 4),
+                                  width: 48.w,
+                                  height: 8.h,
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 8.w,
+                                        height: 8.h,
+                                        child: SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 4,
+                                          top: 1,
+                                          bottom: 1,
+                                        ),
+                                        child: Text(
+                                          '6.0 bpm',
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                            color: const Color(0xFFFF7F74),
+                                            fontSize: 8,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 0.75,
+                                            letterSpacing: -0.20,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -269,6 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+
           // 하단 바
           BottomBar(),
           SizedBox(height: 34.h),
