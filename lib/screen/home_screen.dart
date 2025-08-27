@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 3),
+                              padding: const EdgeInsets.only(top: 4),
                               child: Row(
                                 children: [
                                   Container(
@@ -299,113 +299,102 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             // 전에 측정하고 최근에 측정한 값 비교
-                            Row(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(left: 28, top: 4),
-                                  width: 48.w,
-                                  height: 8.h,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 8.w,
-                                        height: 8.h,
-                                        child: SvgPicture.asset(
-                                          "assets/icon/polygon.svg",
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 4,
-                                          top: 1,
-                                          bottom: 1,
-                                        ),
-                                        child: Text(
-                                          "6.0 mmHg",
-                                          style: TextStyle(
-                                            fontSize: 8,
-                                            fontFamily: "Pretendard",
-                                            fontWeight: FontWeight.w400,
-                                            height: 6/8,
-                                            letterSpacing: -0.4, // -2.5%
-                                            color: Color(0xffFF7F74),
+                            Container(
+                              width: 268,
+                              height: 8,
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    left: 112,
+                                    top: 0,
+                                    child: Container(
+                                      width: 48,
+                                      height: 8,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        spacing: 4,
+                                        children: [
+                                          SvgPicture.asset("assets/icon/polygon.svg"),
+                                          Text(
+                                            '6.0 mmHg',
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                              color: const Color(0xFFFF7F74),
+                                              fontSize: 8,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 0.75,
+                                              letterSpacing: -0.20,
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 67, top: 4),
-                                  width: 48.w,
-                                  height: 8.h,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 8.w,
-                                        height: 8.h,
-                                        child: SvgPicture.asset(
-                                          "assets/icon/polygon.svg",
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 4,
-                                          top: 1,
-                                          bottom: 1,
-                                        ),
-                                        child: Text(
-                                          "6.0 mmHg",
-                                          style: TextStyle(
-                                            fontSize: 8,
-                                            fontFamily: "Pretendard",
-                                            fontWeight: FontWeight.w400,
-                                            height: 6/8,
-                                            letterSpacing: -0.4, // -2.5%
-                                            color: Color(0xffFF7F74),
+                                  Positioned(
+                                    left: 215,
+                                    top: 0,
+                                    child: Container(
+                                      width: 41,
+                                      height: 8,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        spacing: 4,
+                                        children: [
+                                          SvgPicture.asset("assets/icon/polygon.svg"),
+                                          Text(
+                                            '6.0 bpm',
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                              color: const Color(0xFFFF7F74),
+                                              fontSize: 8,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 0.75,
+                                              letterSpacing: -0.20,
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 67, top: 4),
-                                  width: 48.w,
-                                  height: 8.h,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 8.w,
-                                        height: 8.h,
-                                        child: SvgPicture.asset(
-                                          "assets/icon/polygon.svg",
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 4,
-                                          top: 1,
-                                          bottom: 1,
-                                        ),
-                                        child: Text(
-                                          '6.0 bpm',
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                            color: const Color(0xFFFF7F74),
-                                            fontSize: 8,
-                                            fontFamily: 'Pretendard',
-                                            fontWeight: FontWeight.w400,
-                                            height: 0.75,
-                                            letterSpacing: -0.20,
+                                  Positioned(
+                                    left: 0,
+                                    top: 0,
+                                    child: Container(
+                                      width: 48,
+                                      height: 8,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        spacing: 4,
+                                        children: [
+                                          SvgPicture.asset("assets/icon/polygon.svg"),
+
+                                          Text(
+                                            '6.0 mmHg',
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                              color: const Color(0xFFFF7F74),
+                                              fontSize: 8,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 0.75,
+                                              letterSpacing: -0.20,
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),
