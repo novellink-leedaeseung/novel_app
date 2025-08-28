@@ -8,6 +8,7 @@ import 'package:novel/primary-color.dart';
 // 분리한 컴포넌트들
 import '../component/bp_app_bar_widget.dart';
 import '../component/bp_log_sheet_widget.dart';
+import '../component/bp_segmented_switch.dart';
 import '../component/date_center_with_calendar_widget.dart';
 import '../component/guidance_panel_widget.dart';
 import '../component/graph_section_widget.dart';
@@ -67,7 +68,17 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                   const GraphSection(),
 
                   // 구간 선택(최근/월/년) 자리
-                  Container(width: double.infinity, height: 60, color: Colors.white),
+                  Container(
+                    width: double.infinity,
+                    height: 60,
+                    color: Colors.white,
+                    child: BpSegmentedSwitch(
+                      initialIndex: 0, // 0: 최근, 1: 월, 2: 년
+                      onChanged: (i) {
+                        // TODO: i 값에 따라 목록 갱신
+                      },
+                    ),
+                  ),
 
                   // 가이드 패널
                   const GuidancePanel(),
