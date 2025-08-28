@@ -87,8 +87,8 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
             ),
           ),
 
-          const BottomBar(location: 'chart',),
-          const SizedBox(height: 34),
+          Container(color: Colors.white,child: const BottomBar(location: 'chart',)),
+          Container(color: Colors.white, height: 24),
         ],
       ),
     );
