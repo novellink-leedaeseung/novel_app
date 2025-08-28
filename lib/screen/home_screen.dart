@@ -408,7 +408,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           // 하단 바
-          BottomBar(),
+          BottomBar(location: 'home',),
           SizedBox(height: 34.h),
         ],
       ),
