@@ -7,39 +7,42 @@ class GuidancePanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 24.w),
-      width: 327.w,
-      height: 166.h,
-      clipBehavior: Clip.antiAlias,
-      decoration: ShapeDecoration(
-        color: const Color(0xFFE2E2E2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 15),
-        child: Column(
-          children: const [
-            _GuideTitleRow(),
-            SizedBox(height: 4),
-            _GuideLine(
-              leading: "혈압은 ",
-              highlight: "고혈압1기",
-              trailing: " 입니다.",
-            ),
-            SizedBox(height: 8),
-            _GuideLine(
-              leading: "수축기 혈압은 적정범위까지 ",
-              highlight: "-61",
-              trailing: " 남았습니다.",
-            ),
-            SizedBox(height: 8),
-            _GuideLine(
-              leading: "이완기 혈압은 적정범위까지 ",
-              highlight: "-9",
-              trailing: " 남았습니다.",
-            ),
-          ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 24.w),
+        width: 327.w,
+        height: 166.h,
+        clipBehavior: Clip.antiAlias,
+        decoration: ShapeDecoration(
+          color: const Color(0xFFE2E2E2),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Column(
+            children: const [
+              _GuideTitleRow(),
+              SizedBox(height: 4),
+              _GuideLine(
+                leading: "혈압은 ",
+                highlight: "고혈압1기",
+                trailing: " 입니다.",
+              ),
+              SizedBox(height: 8),
+              _GuideLine(
+                leading: "수축기 혈압은 적정범위까지 ",
+                highlight: "-61",
+                trailing: " 남았습니다.",
+              ),
+              SizedBox(height: 8),
+              _GuideLine(
+                leading: "이완기 혈압은 적정범위까지 ",
+                highlight: "-9",
+                trailing: " 남았습니다.",
+              ),
+            ],
+          ),
         ),
       ),
     );
