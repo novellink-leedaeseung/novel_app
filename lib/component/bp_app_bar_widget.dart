@@ -1,6 +1,8 @@
 // lib/screen/bp/bp_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class BpAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BpAppBar({
@@ -53,24 +55,28 @@ class BpAppBar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 107),
 
           // '목록' 버튼 (우측)
-          TextButton(
-            onPressed: onOpenList,
-            style: TextButton.styleFrom(
-              padding: EdgeInsets.zero,
-              minimumSize: Size.zero,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            child: const Text(
-              '목록',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'Pretendard',
-                height: 0.06,
-                letterSpacing: -0.50,
+          Container(
+            width: 45.w,
+            height: 24.h,
+            child: TextButton(
+              onPressed: onOpenList,
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
-            )
+              child: const Text(
+                '목록',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'Pretendard',
+                  height: 0.06,
+                  letterSpacing: -0.50,
+                ),
+              )
+            ),
           ),
         ],
       ),
