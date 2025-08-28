@@ -1,6 +1,7 @@
 // lib/screen/bp/summary_row.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:novel/component/range_segment_bar.dart';
 import 'package:novel/component/ui_decorations.dart';
 import 'package:novel/primary-color.dart';
 
@@ -38,7 +39,35 @@ class _HypertensionStatusCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("고혈압 수치"),
+            Container(
+              width: 110.w,
+              height: 20.h,
+              clipBehavior: Clip.antiAlias,
+              decoration: ShapeDecoration(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                shadows: [
+                  BoxShadow(
+                    color: Color(0x3F000000),
+                    blurRadius: 2,
+                    offset: Offset(1, 1),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: RangeSegmentBar(
+                colors: const [
+                  Color(0xFF56C271), // Green
+                  Color(0xFFF2D64B), // Yellow
+                  Color(0xFFE5621C), // Deep Orange
+                  Color(0xFF9E2C6A), // Magenta
+                ],
+                height: 14,
+                indicator: 0.65,
+              ),
+            ),
             const Spacer(),
             Align(
               alignment: Alignment.bottomRight,
@@ -107,6 +136,7 @@ class _HeartRateCard extends StatelessWidget {
 
 class _BpmText extends StatelessWidget {
   const _BpmText({required this.value});
+
   final int value;
 
   @override
