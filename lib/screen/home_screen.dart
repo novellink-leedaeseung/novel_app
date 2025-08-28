@@ -57,22 +57,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 327.w,
                     height: 115.h,
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        shadows: [
                           BoxShadow(
-                            color: Color(0xff227eff), // 파란색 glow
-                            blurRadius: 4, // 퍼짐 정도 (값 키울수록 부드럽게)
-                            spreadRadius: 0, // 바깥으로 확장
-                          ),
+                            color: Color(0x0000000F),
+                            blurRadius: 4,
+                            offset: Offset(4, 4),
+                            spreadRadius: 0,
+                          )
                         ],
                       ),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          elevation: 3.0,
                           padding: EdgeInsets.zero,
-                          side: BorderSide(color: Color(0xff227eff)),
+
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
