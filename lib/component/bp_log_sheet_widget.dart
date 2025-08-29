@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'bp_card_widget.dart';
 
 Future<void> showBpLogSheet(BuildContext context) {
@@ -41,14 +42,8 @@ Future<void> showBpLogSheet(BuildContext context) {
                         height: 56.h,
                         child: Row(
                           children: [
-                            SizedBox(
-                              width: 24.w,
-                              height: 24.h,
-                              child: IconButton(
-                                onPressed: () => Navigator.of(context).pop(), // 닫기 버튼으로만 닫힘
-                                icon: SvgPicture.asset("assets/icon/close.svg"),
-                              ),
-                            ),
+                            ElevatedButton(onPressed: () { context.pop(); },
+                            child: SvgPicture.asset("assets/icon/close.svg")),
                             const SizedBox(width: 106),
                             const Text(
                               '혈압기록',
