@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:novel/component/bottom-bar.dart';
 import 'package:novel/iPhone_top.dart';
-import 'package:novel/primary-color.dart';
 
 // 분리한 컴포넌트들
 import '../component/bp_app_bar_widget.dart';

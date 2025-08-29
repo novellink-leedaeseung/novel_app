@@ -51,6 +51,8 @@ dev_dependencies:
   flutter_screenutil: ^5.9.3
   # 차트
   syncfusion_flutter_charts: ^30.2.7
+  # 날짜
+  flutter_neat_and_clean_calendar: ^0.4.16
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

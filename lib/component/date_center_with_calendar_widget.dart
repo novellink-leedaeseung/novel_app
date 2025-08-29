@@ -1,6 +1,7 @@
-// lib/screen/bp/date_widgets.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart'
+    as nc;
 
 class CalendarIconButton extends StatelessWidget {
   const CalendarIconButton({
@@ -18,24 +19,102 @@ class CalendarIconButton extends StatelessWidget {
   final Color color;
   final double size;
 
-  Future<void> _openPicker(BuildContext context) async {
-    final now = DateTime.now();
-    final picked = await showDatePicker(
+  Future<void> _openCalendarSheet(BuildContext context) async {
+    final picked = await showModalBottomSheet<DateTime>(
       context: context,
-      initialDate: initialDate ?? now,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) {
+        return _CalendarSheet(
+          initialDate: initialDate,
+          onPicked: (d) => Navigator.of(ctx).pop(d),
+        );
+      },
     );
-    if (picked != null && onDatePicked != null) onDatePicked!(picked);
+
+    if (picked != null && onDatePicked != null) {
+      onDatePicked!(picked);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onPressed ?? () => _openPicker(context),
+      onTap: onPressed ?? () => _openCalendarSheet(context),
       child: SizedBox(
         child: Center(
           child: Icon(Icons.calendar_month_rounded, size: size, color: color),
+        ),
+      ),
+    );
+  }
+}
+
+class _CalendarSheet extends StatelessWidget {
+  const _CalendarSheet({
+    required this.onPicked,
+    this.initialDate,
+  });
+
+  final DateTime? initialDate;
+  final ValueChanged<DateTime> onPicked;
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height * 0.65;
+
+    return SafeArea(
+      top: false,
+      child: Container(
+        height: height,
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+        child: Column(
+          children: [
+            // 상단 헤더
+            Row(
+              children: [
+                const Expanded(
+                  child: Text(
+                    '날짜 선택',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF0D1B34),
+                    ),
+                  ),
+                ),
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  icon: const Icon(Icons.close),
+
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            // 달력만 표시 (이벤트 리스트/불필요 옵션 제거)
+            Expanded(
+              child: nc.Calendar(
+                // 최소 옵션만 사용
+                startOnMonday: true,
+                // 한국어 주간 표기
+                weekDays: const ['월', '화', '수', '목', '금', '토', '일'],
+                // 이벤트 필요 없으면 빈 리스트
+                eventsList: const <nc.NeatCleanCalendarEvent>[],
+                // 달력만 보이도록
+                showEvents: false,
+                isExpanded: true,
+                // 선택 즉시 전달 후 닫기
+                onDateSelected: (date) {
+                  // initialDate 기준 월로 최초 오픈을 맞추고 싶다면 패키지 컨트롤러 사용 고려
+                  // onPicked(DateTime(date.year, date.month, date.day));
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
