@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:novel/component/bottom-bar.dart';
 import 'package:novel/iPhone_top.dart';
+import 'package:intl/intl.dart';
 
 // 분리한 컴포넌트들
 import '../component/bp_app_bar_widget.dart';
@@ -49,8 +50,8 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: DateCenterWithCalendar(
-                      dateText: '2025.08.15',
-                      initialDate: DateTime(2025, 8, 15),
+                      dateText: DateFormat('yyyy-MM-dd').format(DateTime.now()),
+                      initialDate: DateTime.now(),
                       onDatePicked: (d) {
                         // TODO: 선택 날짜 반영 setState(...)
                       },

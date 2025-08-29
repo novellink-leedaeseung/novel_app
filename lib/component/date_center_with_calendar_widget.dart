@@ -155,8 +155,9 @@ class _CalendarBottomSheet extends StatelessWidget {
                   CalendarModalHeader(
                     onClose: () => Navigator.of(context).pop(),
                     onToday: () {
-                      final now = DateTime.now();
-                      onPicked(DateTime(now.year, now.month, now.day));
+                      DateTime.now();
+                      /*final now = DateTime.now();
+                      onPicked(DateTime(now.year, now.month, now.day));*/
                     },
                   ),
                   const Divider(height: _dividerHeight),
