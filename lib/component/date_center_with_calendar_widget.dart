@@ -165,6 +165,7 @@ class _CalendarBottomSheet extends StatelessWidget {
                   SizedBox(
                     height: calendarHeight,
                     child: Calendar(
+                      showEventListViewIcon: false, // Today 대 제목 왼쪽에 아이콘 삭제
                       weekDays: const ['일', '월', '화', '수', '목', '금', '토'],
                       eventsList: _eventList,
                       showEvents: true,
