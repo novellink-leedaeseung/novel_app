@@ -109,6 +109,7 @@ class _CalendarBottomSheet extends StatelessWidget {
 
   final DateTime? initialDate;
   final ValueChanged<DateTime> onPicked;
+
   // 날짜
   DateTime dateTime = DateTime.now();
 
@@ -169,33 +170,37 @@ class _CalendarBottomSheet extends StatelessWidget {
                       allDayEventText: 'test',
                       weekDays: const ['일', '월', '화', '수', '목', '금', '토'],
                       eventListBuilder:
-                          (
-                            BuildContext context,
-                            List<NeatCleanCalendarEvent> _selectesdEvents,
-                          ) {
-                            return Column(
-                              children: [
-                                Container(
-                                  width: 375.w,
-                                  height: 24.h,
-                                  color: Color(0xff227EFF),
-                                  child: Container(
-                                    width: 311.w,
-                                    height: 22.h,
-                                    child: Text(
-                                      style: TextStyle(color: Colors.white),
-                                      textAlign: TextAlign.center,
-                                      "${dateTime.year}년 ${dateTime.month}월 ${dateTime.day}일",
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Text("${_selectesdEvents.first.description}"),
-                                )
-                              ],
-                            );
-                          },
+                          (BuildContext context,
+                          List<NeatCleanCalendarEvent> _selectesdEvents,) {
+                        return Column(
+                          children: [
+                          Container(
+                          width: 375.w,
+                          height: 24.h,
+                          color: Color(0xff227EFF),
+                          child: Container(
+                            width: 311.w,
+                            height: 22.h,
+                            child: Text(
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center,
+                              "${dateTime.year}년 ${dateTime.month}월 ${dateTime
+                                  .day}일",
+                            ),
+                          ),
+                        ),
+                        Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: (_selectesdEvents.length > 0) ?
+                            Text("${_selectesdEvents.first.description}")
+                            :
+                            Text("")
+                        ,
+                        )
+                        ]
+                        ,
+                        );
+                      },
                       eventsList: _eventList,
                       showEvents: true,
                       isExpanded: true,
@@ -223,16 +228,28 @@ class _CalendarBottomSheet extends StatelessWidget {
       '고혈압 1기',
       description: '148 / 128 mmHg 70 bpm',
       startTime: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day - 1,
+        DateTime
+            .now()
+            .year,
+        DateTime
+            .now()
+            .month,
+        DateTime
+            .now()
+            .day - 1,
         00,
         0,
       ),
       endTime: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day - 1,
+        DateTime
+            .now()
+            .year,
+        DateTime
+            .now()
+            .month,
+        DateTime
+            .now()
+            .day - 1,
         00,
         0,
       ),
@@ -243,16 +260,28 @@ class _CalendarBottomSheet extends StatelessWidget {
       '고혈압 1기',
       description: '148 / 128 mmHg 70 bpm',
       startTime: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day - 3,
+        DateTime
+            .now()
+            .year,
+        DateTime
+            .now()
+            .month,
+        DateTime
+            .now()
+            .day - 3,
         10,
         0,
       ),
       endTime: DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day - 3,
+        DateTime
+            .now()
+            .year,
+        DateTime
+            .now()
+            .month,
+        DateTime
+            .now()
+            .day - 3,
         10,
         0,
       ),
