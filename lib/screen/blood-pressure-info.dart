@@ -54,6 +54,7 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                       initialDate: DateTime.now(),
                       onDatePicked: (d) {
                         // TODO: 선택 날짜 반영 setState(...)
+                        DateTime.now();
                       },
                     ),
                   ),
