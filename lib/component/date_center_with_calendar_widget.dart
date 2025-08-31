@@ -174,31 +174,216 @@ class _CalendarBottomSheet extends StatelessWidget {
                           List<NeatCleanCalendarEvent> _selectesdEvents,) {
                         return Column(
                           children: [
-                          Container(
-                          width: 375.w,
-                          height: 24.h,
-                          color: Color(0xff227EFF),
-                          child: Container(
-                            width: 311.w,
-                            height: 22.h,
-                            child: Text(
-                              style: TextStyle(color: Colors.white),
-                              textAlign: TextAlign.center,
-                              "${dateTime.year}년 ${dateTime.month}월 ${dateTime
-                                  .day}일",
+                            Container(
+                              width: 375.w,
+                              height: 24.h,
+                              color: Color(0xff227EFF),
+                              child: Container(
+                                width: 311.w,
+                                height: 22.h,
+                                child: Text(
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                  "${dateTime.year}년 ${dateTime
+                                      .month}월 ${dateTime.day}일",
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: (_selectesdEvents.length > 0) ?
-                            Text("${_selectesdEvents.first.description}")
-                            :
-                            Text("")
-                        ,
-                        )
-                        ]
-                        ,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: (_selectesdEvents.isNotEmpty)
+                                  ? Container(
+                                width: 375,
+                                height: 56,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffF4F4F4),
+                                  borderRadius: BorderRadius.circular(
+                                    8,
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    // 고혈압 1기 옆 막대기
+                                    Container(
+                                      width: 10,
+                                      height: 56,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(
+                                          999,
+                                        ),
+                                        color: Color(0xffe5621c),
+                                      ),
+                                    ),
+                                    // 왼쪽: 상태 & 수치
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 6,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment
+                                                .start,
+                                            mainAxisAlignment:
+                                            MainAxisAlignment
+                                                .center,
+                                            children: [
+                                              Container(
+                                                width: 80,
+                                                height: 20,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                  MainAxisSize
+                                                      .min,
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .start,
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment
+                                                      .center,
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                          .only(
+                                                          top: 4, bottom: 4.5),
+                                                      child: SizedBox(
+                                                        width: 54,
+                                                        height: 20,
+                                                        child: Text(
+                                                          '고혈압1기',
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                              0xFFE5621C,
+                                                            ),
+                                                            fontSize:
+                                                            14,
+                                                            fontFamily:
+                                                            'Pretendard',
+                                                            height:
+                                                            0.12,
+                                                            letterSpacing:
+                                                            -0.35,
+                                                            fontWeight: FontWeight
+                                                                .w600,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text.rich(
+                                                    TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: '148 / 128',
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xFF111111),
+                                                            fontSize: 14,
+                                                            fontFamily: 'Pretendard',
+                                                            height: 0.11,
+                                                            letterSpacing: -0.35,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: ' ',
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xFF111111),
+                                                            fontSize: 12,
+                                                            fontFamily: 'Pretendard',
+                                                            height: 0.15,
+                                                            letterSpacing: -0.30,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: 'mmHg',
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xFF505050),
+                                                            fontSize: 10,
+                                                            fontFamily: 'Pretendard',
+                                                            height: 0.22,
+                                                            letterSpacing: -0.25,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: ' ',
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xFF8C8C8C),
+                                                            fontSize: 10,
+                                                            fontFamily: 'Pretendard',
+                                                            height: 0.22,
+                                                            letterSpacing: -0.25,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "70 bpm",
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                      FontWeight
+                                                          .w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                    // 오른쪽: 시간 & 수기정보 입력
+                                    Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "13:40",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.grey[700],
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.edit,
+                                              size: 14,
+                                              color: Colors.grey[600],
+                                            ),
+                                            const SizedBox(width: 4),
+                                            Text(
+                                              "수기정보 입력",
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color:
+                                                Colors.grey[600],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                                  : Text(""),
+                            ),
+                          ],
                         );
                       },
                       eventsList: _eventList,
@@ -255,6 +440,7 @@ class _CalendarBottomSheet extends StatelessWidget {
       ),
       color: Colors.orange,
       isMultiDay: false,
+      metadata: {"type": "edit"},
     ),
     NeatCleanCalendarEvent(
       '고혈압 1기',
@@ -289,6 +475,13 @@ class _CalendarBottomSheet extends StatelessWidget {
       isMultiDay: false,
     ),
   ];
+}
+
+class ManualInput extends NeatCleanCalendarEvent {
+  ManualInput(super.summary, {
+    required super.startTime,
+    required super.endTime,
+  });
 }
 
 class DateCenterWithCalendar extends StatelessWidget {
