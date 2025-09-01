@@ -10,80 +10,66 @@ class Notice extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 15, left: 24, right: 24),
       child: Container(
-        width: 327.w,
-        height: 90.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xff227eff), // 파란색
-              blurRadius: 4,            // 흐림 정도 (사방으로 4px 퍼짐)
-              spreadRadius: 0.4,          // 그림자 영역 확장 (바깥쪽으로 4px)
+        width: 327,
+        height: 90,
+        clipBehavior: Clip.antiAlias,
+        decoration: ShapeDecoration(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 0.5,
+              color: const Color(0xFF227EFF),
             ),
-
+            borderRadius: BorderRadius.circular(16),
+          ),
+          shadows: const [
+            BoxShadow(
+              color: Color(0x19227EFF),
+              blurRadius: 4,
+              offset: Offset(4, 4),
+              spreadRadius: 0,
+            )
           ],
         ),
-        child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            backgroundColor: Colors.white,
-            elevation: 3.0,
-            padding: EdgeInsets.zero,
-            side: BorderSide(color: Color(0xff227eff)),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 12, top: 14),
+          child: SizedBox(
+            width: 303.w,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 11),
+                  child: Text(
+                    '공지사항',
+                    style: const TextStyle(
+                      color: Color(0xFF111111),
+                      fontSize: 14,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w600,
+                      height: 1.86,
+                      letterSpacing: -0.5,
+                    ),
+                  ),
+                ),
+                Text(
+                  '근로자의 날 오픈기념으로 이벤트 진행합니다!',
+                  style: TextStyle(
+                    color: const Color(0xFF227EFF),
+                    fontSize: 12,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                    height: 1.83,
+                    letterSpacing: -0.50,
+                  ),
+                )
+              ],
             ),
           ),
-          onPressed: () {},
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 12,
-                  right: 12,
-                  top: 14,
-                ),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 26,
-                  child: Text(
-                    "공지사항",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      height: 26/14,
-                      letterSpacing: -0.5,
-                      fontFamily: "Inter",
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 12,
-                  right: 12,
-                  top: 11,
-                  bottom: 17,
-                ),
-                child: SizedBox(
-                  width: 303.w,
-                  height: 22.h,
-                  child: Text(
-                    "근로자의 날 오픈기념으로 이벤트 진행합니다!",
-                    style: TextStyle(
-                      color: Color(0xff227eff),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                      height: 12/22,
-                      letterSpacing: -0.5,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
-      ),
+      )
+      ,
     );
   }
 }
