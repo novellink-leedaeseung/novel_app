@@ -8,11 +8,11 @@ class TextStyleCustom {
   // "수축기 혈압", "이완기 혈압", "맥박"
   static TextStyle homeBloodBoxTextStyle() {
     return TextStyle(
-        color: PrimaryColor.gray,
-        fontFamily: "Pretendard",
-        fontWeight: FontWeight.w400,
-        fontSize: 12,
-        height: 6/12
+      color: const Color(0xFF505050),
+      fontSize: 12,
+      fontFamily: 'Pretendard',
+      fontWeight: FontWeight.w400,
+      height: 0.50,
     );
   }
 
