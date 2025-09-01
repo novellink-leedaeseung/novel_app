@@ -28,29 +28,27 @@ class GraphSection extends StatelessWidget {
       margin: EdgeInsets.only(top: 10),
       height: 210,
       color: Colors.white, // 배경색
-      child: SafeArea(
-        child: Column(
-          children: [
-            // Cartesian 차트
-            Expanded(
-              child: SfCartesianChart(
-                primaryXAxis: CategoryAxis(),
-                legend: Legend(isVisible: true),
-                tooltipBehavior: TooltipBehavior(enable: true),
-                series: <CartesianSeries<_SalesData, String>>[
-                  LineSeries<_SalesData, String>(
-                    dataSource: data,
-                    xValueMapper: (s, _) => s.year,
-                    yValueMapper: (s, _) => s.sales,
-                    name: 'Sales',
-                    dataLabelSettings: const DataLabelSettings(isVisible: true),
-                  ),
-                ],
-              ),
+      child: Column(
+        children: [
+          // Cartesian 차트
+          Expanded(
+            child: SfCartesianChart(
+              primaryXAxis: CategoryAxis(),
+              legend: Legend(isVisible: true),
+              tooltipBehavior: TooltipBehavior(enable: true),
+              series: <CartesianSeries<_SalesData, String>>[
+                LineSeries<_SalesData, String>(
+                  dataSource: data,
+                  xValueMapper: (s, _) => s.year,
+                  yValueMapper: (s, _) => s.sales,
+                  name: 'Sales',
+                  dataLabelSettings: const DataLabelSettings(isVisible: true),
+                ),
+              ],
             ),
+          ),
 
-          ],
-        ),
+        ],
       ),
     );
   }

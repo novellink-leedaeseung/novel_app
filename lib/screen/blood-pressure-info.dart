@@ -6,9 +6,9 @@ import 'package:novel/iPhone_top.dart';
 import 'package:intl/intl.dart';
 
 // 분리한 컴포넌트들
-import '../component/bp_app_bar_widget.dart';
-import '../component/bp_log_sheet_widget.dart';
-import '../component/bp_segmented_switch.dart';
+import '../component/bp/bp_app_bar_widget.dart';
+import '../component/bp/bp_log_sheet_widget.dart';
+import '../component/bp/bp_segmented_switch.dart';
 import '../component/date_center_with_calendar_widget.dart';
 import '../component/guidance_panel_widget.dart';
 import '../component/graph_section_widget.dart';

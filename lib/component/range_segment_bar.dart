@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 /// 다색 구간 그래프 바 (세그먼트형)
 class RangeSegmentBar extends StatelessWidget {
@@ -31,6 +33,7 @@ class RangeSegmentBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(375, 812));
     final w = weights ?? List<double>.filled(colors.length, 1);
 
     return Container(
@@ -43,50 +46,65 @@ class RangeSegmentBar extends StatelessWidget {
             final total = w.fold<double>(0, (a, b) => a + b);
             final r = BorderRadius.circular(radius);
 
-            return Stack(
-              children: [
-                // 구간 색상
-                ClipRRect(
-                  borderRadius: r,
-                  child: Row(
-                    children: List.generate(colors.length, (i) {
-                      final flex = ((w[i] / total) * 1000).round().clamp(1, 1000);
-                      return Expanded(
-                        flex: flex,
-                        child: Container(color: colors[i]),
-                      );
-                    }),
+            return SizedBox(
+              width: 110.w,
+              height: 20.h,
+              child: Stack(
+                children: [
+                  // 구간 색상
+                  Container(
+                    transformAlignment: Alignment.center,
+                    margin: EdgeInsets.symmetric(
+                      vertical: 3,
+                      horizontal: 4
+                    ),
+                    // width: 110.w,
+                    height: 14.h,
+                    child: ClipRRect(
+                      borderRadius: r,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: List.generate(colors.length, (i) {
+                          final flex = ((w[i] / total) * 1000).round().clamp(1, 1000);
+                          return Expanded(
+                            flex: flex,
+                            child: Container(color: colors[i]),
+                          );
+                        }),
+                      ),
+                    ),
                   ),
-                ),
 
-                // 테두리
-                if (showBorder)
-                  Positioned.fill(
-                    child: IgnorePointer(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: r,
-                          border: Border.all(color: Colors.black.withOpacity(0.08), width: 1),
+                  // 테두리
+                  if (showBorder)
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: r,
+                            border: Border.all(color: Colors.black.withOpacity(0.08), width: 1),
+                          ),
                         ),
                       ),
                     ),
-                  ),
 
-                // 인디케이터(세로 바)
-                if (indicator != null)
-                  Positioned(
-                    left: (indicator!.clamp(0.0, 1.0)) * c.maxWidth - (indicatorWidth / 2),
-                    top: 3,
-                    bottom: 3,
-                    child: Container(
-                      width: indicatorWidth,
-                      decoration: BoxDecoration(
-                        color: indicatorColor,
-                        borderRadius: BorderRadius.circular(2),
+                  // 인디케이터(세로 바)
+                  if (indicator != null)
+                    Positioned(
+                      left: (indicator!.clamp(0.0, 1.0)) * c.maxWidth - (indicatorWidth / 2),
+                      top: 0,
+                      bottom: 7,
+                      child: Container(
+                        width: indicatorWidth,
+                        decoration: BoxDecoration(
+                          color: indicatorColor,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             );
           },
         ),
