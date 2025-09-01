@@ -3,53 +3,97 @@ import 'package:flutter/material.dart';
 import 'package:novel/primary-color.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
-
-class _SalesData {
-  _SalesData(this.year, this.sales);
-  final String year;
-  final double sales;
-}
-
-final List<_SalesData> data = [
-  _SalesData('Jan', 35),
-  _SalesData('Feb', 28),
-  _SalesData('Mar', 34),
-  _SalesData('Apr', 32),
-  _SalesData('May', 40),
-];
-
-
+late TooltipBehavior _tooltipBehavior;
 class GraphSection extends StatelessWidget {
   const GraphSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<ChartData> data = [
+      // 최근 1주일 값
+      ChartData('월', 160, 128, 70),
+      ChartData('화', 140, 100, 74),
+      ChartData('수', 150, 120, 90),
+      ChartData('목', 145, 130, 81),
+      ChartData('금', 158, 128, 84),
+      ChartData('토', 140, 150, 90),
+      ChartData('일', 130, 120, 60),
+    ];
     return Container(
       margin: EdgeInsets.only(top: 10),
       height: 210,
-      color: Colors.white, // 배경색
+      color: Colors.white,
+      // 배경색
       child: Column(
         children: [
-          // Cartesian 차트
           Expanded(
             child: SfCartesianChart(
+              title: ChartTitle(
+                text: "최근 20회"
+              ),
+              tooltipBehavior: TooltipBehavior(
+                enable: true,
+                canShowMarker: false,
+                  format: '이완기 혈압 point.y \n수축기 혈압 point.relaxation',
+                // header: "혈압"
+              ),
               primaryXAxis: CategoryAxis(),
-              legend: Legend(isVisible: true),
-              tooltipBehavior: TooltipBehavior(enable: true),
-              series: <CartesianSeries<_SalesData, String>>[
-                LineSeries<_SalesData, String>(
+              primaryYAxis: NumericAxis(
+                plotBands: <PlotBand>[
+                  // 수축기 120 기준선 (빨간 점선)
+                  PlotBand(
+                    start: 120, end: 120,           // start=end 로 ‘선’처럼 사용
+                    isVisible: true,
+                    borderWidth: 1,
+                    borderColor: Colors.red,
+                    color: Colors.transparent,      // 배경은 투명
+                  ),
+                  // 정상범위(90~119) 배경 하이라이트
+                  PlotBand(
+                    start: 80, end: 80,
+                    borderWidth: 1,
+                    borderColor: Colors.red,
+                    isVisible: true,
+                  ),
+                ],
+              ),
+              enableSideBySideSeriesPlacement: true,
+              series: <CartesianSeries>[
+                RangeColumnSeries<ChartData, String>(
+                  name: "혈압",
+                  width: 0.1,
                   dataSource: data,
-                  xValueMapper: (s, _) => s.year,
-                  yValueMapper: (s, _) => s.sales,
-                  name: 'Sales',
-                  dataLabelSettings: const DataLabelSettings(isVisible: true),
+                  xValueMapper: (ChartData data, _) => data.x,
+                  lowValueMapper: (ChartData data, _) => data.relaxation,
+                  highValueMapper: (ChartData data, _) => data.y,
                 ),
+                // 맥박
+                SplineSeries<ChartData, String>(
+                  name: "맥박",
+                  opacity: 1,
+                  width: 0.4,
+                  dataSource: data,
+                  xValueMapper: (ChartData data, _) => data.x, // 요일 매칭
+                  yValueMapper: (ChartData data, _) => data.bpm,
+                ),
+
               ],
             ),
           ),
-
         ],
       ),
     );
   }
+}
+
+class ChartData {
+  ChartData(this.x, this.y, this.relaxation, this.bpm);
+
+  // 요일
+  final String x;
+  // 수축기 혈압, 이완기 혈압
+  final double y;
+  final double relaxation;
+  // 맥박
+  final double bpm;
 }
