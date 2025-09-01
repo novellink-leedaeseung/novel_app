@@ -50,7 +50,7 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: DateCenterWithCalendar(
-                      dateText: DateFormat('yyyy-MM-dd').format(DateTime.now()),
+                      dateText: DateFormat('yyyy.MM.dd').format(DateTime.now()),
                       initialDate: DateTime.now(),
                       onDatePicked: (d) {
                         // TODO: 선택 날짜 반영 setState(...)

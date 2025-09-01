@@ -36,46 +36,48 @@ class BpAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
 
-          const SizedBox(width: 107),
-
           // 제목
-          Text(
-            '혈압',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'Pretendard',
-              height: 0.06,
-              letterSpacing: -0.50,
+          Container(
+            margin: EdgeInsets.only(left: 117, right: 96),
+            child: Text(
+              '혈압',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Pretendard',
+                height: 0.06,
+                letterSpacing: -0.50,
+              ),
             ),
           ),
 
-          const SizedBox(width: 107),
-
           // '목록' 버튼 (우측)
-          Container(
-            width: 45.w,
-            height: 24.h,
-            child: TextButton(
-              onPressed: onOpenList,
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              ),
-              child: const Text(
-                '목록',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: 'Pretendard',
-                  height: 0.06,
-                  letterSpacing: -0.50,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: onOpenList,
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: const Text(
+                    '목록',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: 'Pretendard',
+                      height: 0.06,
+                      letterSpacing: -0.50,
+                    ),
+                  )
                 ),
-              )
+              ],
             ),
           ),
         ],

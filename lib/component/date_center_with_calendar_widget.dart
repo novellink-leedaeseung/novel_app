@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CalendarIconButton extends StatelessWidget {
   const CalendarIconButton({
@@ -45,7 +46,8 @@ class CalendarIconButton extends StatelessWidget {
       onTap: onPressed ?? () => _openCalendarDialog(context),
       child: SizedBox(
         child: Center(
-          child: Icon(Icons.calendar_month_rounded, size: size, color: color),
+          // child: Icon(Icons.calendar_month_rounded, size: size, color: color),
+          child: SvgPicture.asset("assets/icon/calendar.svg"),
         ),
       ),
     );
