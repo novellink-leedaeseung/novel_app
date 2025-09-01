@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:novel/component/bp_input_widget.dart';
 
 class CalendarIconButton extends StatelessWidget {
   const CalendarIconButton({
@@ -521,6 +522,28 @@ class DateCenterWithCalendar extends StatelessWidget {
           initialDate: initialDate,
           onDatePicked: onDatePicked,
           color: color,
+        ),
+        SizedBox(
+          width: 32,
+          height: 32,
+          child: ElevatedButton(
+            onPressed: () {
+              // TODO: 클릭 이벤트 처리
+              showBpInputModal(context);
+            },
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.zero, // 기본 패딩 제거
+              shape: const CircleBorder(), // 원형 버튼
+              backgroundColor: const Color(0xFF227EFF), // 파란색 (#227EFF)
+              shadowColor: Colors.black.withOpacity(0.15), // 그림자
+              elevation: 4, // 그림자 강도
+            ),
+            child: const Icon(
+              Icons.add,
+              size: 16, // 아이콘 크기
+              color: Colors.white, // 아이콘 색상
+            ),
+          ),
         ),
       ],
     );
