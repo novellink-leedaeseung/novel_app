@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 // 환영메시지, 기업회원 버튼
@@ -38,21 +39,18 @@ class WelcomeBanner extends StatelessWidget {
               height: 24.h,
               child: Row(
                 children: [
-                  Image.asset(
-                    "assets/icon/office.png",
-                    width: 24.w,
-                    height: 24.h,
-                  ),
+                  SvgPicture.asset("assets/icon/office.svg"),
                   Padding(
                     padding: const EdgeInsets.only(left: 6),
                     child: Text(
-                      "기업회원 전환",
+                      '기업회원 전환',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: "Pretendard",
                         fontSize: 10,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: -0.5
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                        height: 0.22,
+                        letterSpacing: -0.50,
                       ),
                     ),
                   ),
