@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:go_router/go_router.dart';
 
 class BpInputTop extends StatelessWidget {
   const BpInputTop({super.key});
@@ -22,7 +22,12 @@ class BpInputTop extends StatelessWidget {
           SizedBox(
             width: 24,
             height: 24,
-            child: SvgPicture.asset("assets/icon/close.svg"), // 아이콘 넣을 자리
+            child: GestureDetector(
+              onTap: () {
+                context.pop();
+              },
+              child: SvgPicture.asset("assets/icon/close.svg"),
+            ),
           ),
 
           // 중앙 제목
