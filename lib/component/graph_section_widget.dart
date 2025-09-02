@@ -20,17 +20,17 @@ class GraphSection extends StatelessWidget {
       ChartData('일', 130, 120, 60),
     ];
     return Container(
-      margin: EdgeInsets.only(top: 10),
-      height: 210,
+      margin: EdgeInsets.only(top: 30),
+      height: 240,
       color: Colors.white,
       // 배경색
       child: Column(
         children: [
           Expanded(
             child: SfCartesianChart(
-              title: ChartTitle(
+              /*title: ChartTitle(
                 text: "최근 20회"
-              ),
+              ),*/
               tooltipBehavior: TooltipBehavior(
                 enable: true,
                 canShowMarker: false,
