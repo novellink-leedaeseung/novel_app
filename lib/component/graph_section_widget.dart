@@ -28,9 +28,6 @@ class GraphSection extends StatelessWidget {
         children: [
           Expanded(
             child: SfCartesianChart(
-              /*title: ChartTitle(
-                text: "최근 20회"
-              ),*/
               tooltipBehavior: TooltipBehavior(
                 enable: true,
                 canShowMarker: false,
@@ -39,6 +36,10 @@ class GraphSection extends StatelessWidget {
               ),
               primaryXAxis: CategoryAxis(),
               primaryYAxis: NumericAxis(
+                // todo 혈압 그래프
+                minimum: 60,
+                maximum: 200,
+                interval: 10,
                 plotBands: <PlotBand>[
                   // 수축기 120 기준선 (빨간 점선)
                   PlotBand(
