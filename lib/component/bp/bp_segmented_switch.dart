@@ -22,7 +22,7 @@ class BpSegmentedSwitch extends StatefulWidget {
 }
 
 class _BpSegmentedSwitchState extends State<BpSegmentedSwitch> {
-  static const _blue = Color(0xFF227EFF);
+  static const _blue = Color(0xff227EFF);
   late int _index;
 
   @override
@@ -53,8 +53,7 @@ class _BpSegmentedSwitchState extends State<BpSegmentedSwitch> {
                     boxShadow: const [
                       BoxShadow(
                         color: Color(0x26000000), // 15~20% 검정
-                        blurRadius: 18,
-                        offset: Offset(0, 8),
+                        blurRadius: 1,
                       ),
                     ],
                   ),
@@ -69,17 +68,9 @@ class _BpSegmentedSwitchState extends State<BpSegmentedSwitch> {
                   width: segW,
                   height: widget.height,
                   child: Container(
-                    margin: const EdgeInsets.all(6), // 흰 캡슐 안쪽에 여백
                     decoration: BoxDecoration(
                       color: _blue,
                       borderRadius: radius,
-                      boxShadow: [
-                        BoxShadow(
-                          color: _blue.withOpacity(0.35),
-                          blurRadius: 16,
-                          offset: const Offset(0, 6),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -100,12 +91,12 @@ class _BpSegmentedSwitchState extends State<BpSegmentedSwitch> {
                           child: AnimatedDefaultTextStyle(
                             duration: const Duration(milliseconds: 150),
                             style: TextStyle(
+                              color: selected ? Colors.white : _blue, // 선택 시 흰색
+                              fontSize: 16,
                               fontFamily: 'Pretendard',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              height: 24 / 20,
-                              letterSpacing: -0.5,
-                              color: selected ? Colors.white : _blue,
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
+                              letterSpacing: -0.40,
                             ),
                             child: Text(widget.items[i]),
                           ),
