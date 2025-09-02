@@ -504,8 +504,9 @@ class DateCenterWithCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        SizedBox(width: 133,),
         Text(
           dateText,
           style: const TextStyle(
@@ -523,7 +524,8 @@ class DateCenterWithCalendar extends StatelessWidget {
           onDatePicked: onDatePicked,
           color: color,
         ),
-        SizedBox(
+        SizedBox(width: 76,),
+        Container(
           width: 32,
           height: 32,
           child: ElevatedButton(
