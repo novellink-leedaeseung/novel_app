@@ -70,7 +70,6 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
 
                   // 구간 선택(최근/월/년) 자리
                   Container(
-                    margin: EdgeInsets.only(top: 10),
                     width: double.infinity,
                     height: 60,
                     color: Colors.white,
