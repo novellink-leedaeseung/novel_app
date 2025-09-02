@@ -264,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            // mmHg 혈압
+                            // bpm 맥박
                             Container(
                               margin: EdgeInsets.only(left: 32),
                               width: 79.w,
@@ -290,105 +290,79 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         // 전에 측정하고 최근에 측정한 값 비교
                         Container(
-                          width: 268,
+                          margin: EdgeInsets.only(left: 28, top: 5.5),
+                          width: 310,
                           height: 8,
-                          child: Stack(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Positioned(
-                                left: 112,
-                                top: 0,
-                                child: Container(
-                                  width: 48,
-                                  height: 8,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    spacing: 4,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icon/polygon.svg",
-                                      ),
-                                      Text(
-                                        '6.0 mmHg',
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          color: const Color(0xFFFF7F74),
-                                          fontSize: 8,
-                                          fontFamily: 'Pretendard',
-                                          fontWeight: FontWeight.w400,
-                                          height: 0.75,
-                                          letterSpacing: -0.20,
-                                        ),
-                                      ),
-                                    ],
+                              // 첫 번째 아이템 (왼쪽)
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SvgPicture.asset("assets/icon/polygon.svg"),
+                                  const Text(
+                                    '6.0 mmHg',
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: Color(0xFFFF7F74),
+                                      fontSize: 8,
+                                      fontFamily: 'Pretendard',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.75,
+                                      letterSpacing: -0.20,
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                              Positioned(
-                                left: 215,
-                                top: 0,
-                                child: Container(
-                                  width: 41,
-                                  height: 8,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    spacing: 4,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icon/polygon.svg",
-                                      ),
-                                      Text(
-                                        '6.0 bpm',
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          color: const Color(0xFFFF7F74),
-                                          fontSize: 8,
-                                          fontFamily: 'Pretendard',
-                                          fontWeight: FontWeight.w400,
-                                          height: 0.75,
-                                          letterSpacing: -0.20,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 0,
-                                top: 0,
-                                child: Container(
-                                  width: 48,
-                                  height: 8,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    spacing: 4,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icon/polygon.svg",
-                                      ),
 
-                                      Text(
-                                        '6.0 mmHg',
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          color: const Color(0xFFFF7F74),
-                                          fontSize: 8,
-                                          fontFamily: 'Pretendard',
-                                          fontWeight: FontWeight.w400,
-                                          height: 0.75,
-                                          letterSpacing: -0.20,
-                                        ),
+                              // 두 번째 아이템 (중간)
+                              Container(
+                                margin: EdgeInsets.only(left: 64),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SvgPicture.asset("assets/icon/polygon.svg"),
+                                    const SizedBox(width: 4),
+                                    const Text(
+                                      '6.0 mmHg',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: Color(0xFFFF7F74),
+                                        fontSize: 8,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.75,
+                                        letterSpacing: -0.20,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              // 세 번째 아이템 (오른쪽)
+                              Container(
+                                margin: EdgeInsets.only(left: 67),
+
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SvgPicture.asset("assets/icon/polygon.svg"),
+                                    const SizedBox(width: 4),
+                                    const Text(
+                                      '6.0 bpm',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: Color(0xFFFF7F74),
+                                        fontSize: 8,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.75,
+                                        letterSpacing: -0.20,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
