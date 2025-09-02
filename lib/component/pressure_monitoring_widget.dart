@@ -1,6 +1,7 @@
 // lib/screen/bp/pressure_row.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:novel/component/ui_decorations.dart';
 import 'package:novel/primary-color.dart';
 
@@ -27,6 +28,7 @@ class PressureRow extends StatelessWidget {
 
 class _SystolicCard extends StatelessWidget {
   const _SystolicCard({required this.sys});
+
   final int sys;
 
   @override
@@ -45,8 +47,13 @@ class _SystolicCard extends StatelessWidget {
               child: Container(
                 width: 38,
                 height: 38,
-                decoration: heartBoxDecoration(color: PrimaryColor.pink),
-                child: Image.asset("assets/icon/heart-red.png"),
+                decoration: heartBoxDecoration(color: Color(0xffFFD9C1)),
+                child: SvgPicture.asset(
+                  "assets/icon/arrow-up-fill.svg",
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.scaleDown,
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -60,6 +67,7 @@ class _SystolicCard extends StatelessWidget {
 
 class _DiastolicCard extends StatelessWidget {
   const _DiastolicCard({required this.dia});
+
   final int dia;
 
   @override
@@ -78,8 +86,11 @@ class _DiastolicCard extends StatelessWidget {
               child: Container(
                 width: 38,
                 height: 38,
-                decoration: heartBoxDecoration(color: PrimaryColor.cloudyBlue),
-                child: Image.asset("assets/icon/heart-blue.png"),
+                decoration: heartBoxDecoration(color: Color(0xffB2D7FF)),
+                child: SvgPicture.asset("assets/icon/arrow-down-fill.svg",
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.scaleDown,),
               ),
             ),
             const SizedBox(height: 16),
@@ -93,6 +104,7 @@ class _DiastolicCard extends StatelessWidget {
 
 class _PressureValue extends StatelessWidget {
   const _PressureValue({required this.value, required this.label});
+
   final int value;
   final String label;
 
