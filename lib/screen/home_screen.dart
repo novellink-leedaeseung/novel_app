@@ -182,11 +182,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 4),
+                          padding: const EdgeInsets.only(top: 11),
                           child: Row(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(left: 22, right: 46),
+                                margin: EdgeInsets.only(left: 22),
                                 width: 60.w,
                                 height: 20.h,
                                 child: Text(
@@ -197,6 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Container(
+                                margin: EdgeInsets.only(left: 46),
                                 width: 60.w,
                                 height: 20.h,
                                 child: Text(
@@ -224,66 +225,157 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(left: 12.5),
-                              width: 79.w,
+                              width: 76.w,
                               height: 22.h,
                               child: SizedBox(
                                 child: Row(
                                   children: [
-                                    Text(
-                                      "148",
-                                      style:
-                                          TextStyleCustom.homeBloodTextNumber(),
-                                    ),
-                                    Text(
-                                      " mmHg",
-                                      style:
-                                          TextStyleCustom.homeBloodTextmmHg(),
-                                    ),
-                                  ],
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '148',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 20,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.10,
+                                              letterSpacing: -0.50,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' ',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 12,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w700,
+                                              height: 1.83,
+                                              letterSpacing: -0.30,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'mmHg ',
+                                            style: TextStyle(
+                                              color: const Color(0xFF505050),
+                                              fontSize: 14,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.57,
+                                              letterSpacing: -0.35,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                    ],
                                 ),
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(left: 32),
-                              width: 79.w,
-                              height: 22.h,
-                              child: SizedBox(
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "88",
-                                      style:
-                                          TextStyleCustom.homeBloodTextNumber(),
+                              margin: EdgeInsets.only(left: 34),
+                              width: 80,
+                              height: 25,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 10,
+                                children: [
+                                  Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: '88',
+                                          style: TextStyle(
+                                            color: const Color(0xFF111111),
+                                            fontSize: 20,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w600,
+                                            height: 1.10,
+                                            letterSpacing: -0.50,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: ' ',
+                                          style: TextStyle(
+                                            color: const Color(0xFF111111),
+                                            fontSize: 12,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.83,
+                                            letterSpacing: -0.30,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'mmHg ',
+                                          style: TextStyle(
+                                            color: const Color(0xFF505050),
+                                            fontSize: 14,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 1.57,
+                                            letterSpacing: -0.35,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      " mmHg",
-                                      style:
-                                          TextStyleCustom.homeBloodTextmmHg(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                             // bpm 맥박
                             Container(
-                              margin: EdgeInsets.only(left: 32),
-                              width: 79.w,
-                              height: 22.h,
-                              child: SizedBox(
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "70",
-                                      style:
-                                          TextStyleCustom.homeBloodTextNumber(),
+                              margin: EdgeInsets.only(left: 31),
+                              width: 80,
+                              height: 25,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 10,
+                                children: [
+                                  Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: '70',
+                                          style: TextStyle(
+                                            color: const Color(0xFF111111),
+                                            fontSize: 20,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w600,
+                                            height: 1.10,
+                                            letterSpacing: -0.50,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: ' ',
+                                          style: TextStyle(
+                                            color: const Color(0xFF111111),
+                                            fontSize: 12,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.83,
+                                            letterSpacing: -0.30,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'bpm ',
+                                          style: TextStyle(
+                                            color: const Color(0xFF505050),
+                                            fontSize: 14,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 1.57,
+                                            letterSpacing: -0.35,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      " bpm",
-                                      style:
-                                          TextStyleCustom.homeBloodTextmmHg(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -302,16 +394,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   SvgPicture.asset("assets/icon/polygon.svg"),
-                                  const Text(
-                                    '6.0 mmHg',
-                                    textAlign: TextAlign.right,
-                                    style: TextStyle(
-                                      color: Color(0xFFFF7F74),
-                                      fontSize: 8,
-                                      fontFamily: 'Pretendard',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0.75,
-                                      letterSpacing: -0.20,
+                                  Container(
+                                    margin: EdgeInsets.only(left: 4),
+                                    child: const Text(
+                                      '6.0 mmHg',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: Color(0xFFFF7F74),
+                                        fontSize: 8,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.75,
+                                        letterSpacing: -0.20,
+                                      ),
                                     ),
                                   ),
                                 ],
