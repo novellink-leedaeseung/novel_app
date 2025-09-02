@@ -47,14 +47,18 @@ class _BpSegmentedSwitchState extends State<BpSegmentedSwitch> {
               children: [
                 // 바깥 흰색 캡슐 + 그림자
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: ShapeDecoration(
                     color: Colors.white,
-                    borderRadius: radius,
-                    boxShadow: const [
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    shadows: [
                       BoxShadow(
-                        color: Color(0x26000000), // 15~20% 검정
-                        blurRadius: 1,
-                      ),
+                        color: Color(0x3F000000),
+                        blurRadius: 2,
+                        offset: Offset(0, 2),
+                        spreadRadius: 0,
+                      )
                     ],
                   ),
                 ),
