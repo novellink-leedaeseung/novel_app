@@ -57,9 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     boxShadow: const [
                       BoxShadow(
                         color: Color.fromRGBO(0, 0, 0, 0.25), // ✅ 회색 그림자
-                        offset: Offset(4, 4),  // x=4, y=4
-                        blurRadius: 4,         // 블러 4
-                        spreadRadius: 0,       // 스프레드 0
+                        offset: Offset(4, 4), // x=4, y=4
+                        blurRadius: 4, // 블러 4
+                        spreadRadius: 0, // 스프레드 0
                       ),
                     ],
                   ),
@@ -162,15 +162,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                       height: 11,
                                       child: Align(
                                         alignment: Alignment.topRight,
-                                        child: Text(
-                                          "2025.08.15",
-                                          style: TextStyle(
-                                            color: Color(0xff626262),
-                                            fontFamily: "Pretendard",
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 10,
-                                            height: 6 / 10,
-                                            letterSpacing: 0,
+                                        child: Container(
+                                          width: 90,
+                                          height: 10,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                '2025.08.15',
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                  color: Color(0xFF505050),
+                                                  fontSize: 10,
+                                                  fontFamily: 'Pretendard',
+                                                  height: 0.06,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -181,43 +193,75 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 11),
+                        Container(
+                          margin: EdgeInsets.only(top: 11),
+                          width: double.infinity,
                           child: Row(
                             children: [
                               Container(
                                 margin: EdgeInsets.only(left: 22),
-                                width: 60.w,
-                                height: 20.h,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  "수축기 혈압",
-                                  style:
-                                      TextStyleCustom.homeBloodBoxTextStyle(),
+                                width: 60,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      child: Text(
+                                        '수축기혈압',
+                                        style: TextStyle(
+                                          color: const Color(0xFF505050),
+                                          fontSize: 12,
+                                          fontFamily: 'Pretendard',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0.50,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 46),
-                                width: 60.w,
-                                height: 20.h,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  "이완기혈압",
-                                  style:
-                                      TextStyleCustom.homeBloodBoxTextStyle(),
+                                margin: EdgeInsets.only(left: 52),
+                                width: 60,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      child: Text(
+                                        '이완기혈압',
+                                        style: TextStyle(
+                                          color: const Color(0xFF505050),
+                                          fontSize: 12,
+                                          fontFamily: 'Pretendard',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0.50,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Container(
-                                width: 60.w,
-                                height: 20.h,
+                                alignment: Alignment.center,
                                 margin: EdgeInsets.only(left: 51),
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  "맥박",
-                                  style:
-                                      TextStyleCustom.homeBloodBoxTextStyle(),
+                                width: 60,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      child: Text(
+                                        '맥박',
+                                        style: TextStyle(
+                                          color: const Color(0xFF505050),
+                                          fontSize: 12,
+                                          fontFamily: 'Pretendard',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0.50,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         ),
@@ -268,8 +312,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         ],
                                       ),
-                                    )
-                                    ],
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -382,49 +426,27 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         // 전에 측정하고 최근에 측정한 값 비교
                         Container(
-                          margin: EdgeInsets.only(left: 28, top: 5.5),
-                          width: 310,
-                          height: 8,
+                          width: double.infinity,
+                          height: 8.h,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // 첫 번째 아이템 (왼쪽)
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SvgPicture.asset("assets/icon/polygon.svg"),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 4),
-                                    child: const Text(
-                                      '6.0 mmHg',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        color: Color(0xFFFF7F74),
-                                        fontSize: 8,
-                                        fontFamily: 'Pretendard',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0.75,
-                                        letterSpacing: -0.20,
+                              Container(
+                                margin: EdgeInsets.only(left: 28),
+                                width: 48.w,
+                                height: 8.h,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(right: 4),
+                                      child: SvgPicture.asset(
+                                        "assets/icon/polygon.svg",
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-
-                              // 두 번째 아이템 (중간)
-                              Container(
-                                margin: EdgeInsets.only(left: 64),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SvgPicture.asset("assets/icon/polygon.svg"),
-                                    const SizedBox(width: 4),
-                                    const Text(
+                                    Text(
                                       '6.0 mmHg',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFFFF7F74),
+                                        color: const Color(0xFFFF7F74),
                                         fontSize: 8,
                                         fontFamily: 'Pretendard',
                                         fontWeight: FontWeight.w400,
@@ -435,21 +457,50 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 ),
                               ),
-
-                              // 세 번째 아이템 (오른쪽)
+                              Container(
+                                margin: EdgeInsets.only(left: 64),
+                                width: 48.w,
+                                height: 8.h,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(right: 4),
+                                      child: SvgPicture.asset(
+                                        "assets/icon/polygon.svg",
+                                      ),
+                                    ),
+                                    Text(
+                                      '6.0 mmHg',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: const Color(0xFFFF7F74),
+                                        fontSize: 8,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.75,
+                                        letterSpacing: -0.20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                               Container(
                                 margin: EdgeInsets.only(left: 67),
-
+                                width: 48.w,
+                                height: 8.h,
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    SvgPicture.asset("assets/icon/polygon.svg"),
-                                    const SizedBox(width: 4),
-                                    const Text(
+                                    Container(
+                                      padding: EdgeInsets.only(right: 4),
+                                      child: SvgPicture.asset(
+                                        "assets/icon/polygon.svg",
+                                      ),
+                                    ),
+                                    Text(
                                       '6.0 bpm',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFFFF7F74),
+                                        color: const Color(0xFFFF7F74),
                                         fontSize: 8,
                                         fontFamily: 'Pretendard',
                                         fontWeight: FontWeight.w400,
