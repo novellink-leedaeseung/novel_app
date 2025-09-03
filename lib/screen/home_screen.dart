@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:novel/component/common/bottom-bar.dart';
 import 'package:novel/component/home-screen/welcome-banner.dart';
@@ -235,99 +236,57 @@ class _HomeScreenState extends State<HomeScreen> {
                                   // 수축기 혈압
                                   Container(
                                     width: 60.w,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: 20.h,
-                                          child: Stack(
-                                            children: [
-                                              Text(
-                                                '수축기혈압',
-                                                style: TextStyle(
-                                                  color: const Color(
-                                                    0xFF505050,
-                                                  ),
-                                                  fontSize: 12,
-                                                  fontFamily: 'Pretendard',
-                                                  fontWeight: FontWeight.w400,
-                                                  height: 0.50,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                    height: 20.h,
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      '수축기혈압',
+                                      style: TextStyle(
+                                        color: const Color(
+                                          0xFF505050,
                                         ),
-                                      ],
+                                        fontSize: 12,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.50,
+                                      ),
                                     ),
                                   ),
                                   // 이완기 혈압
                                   Container(
                                     margin: EdgeInsets.only(left: 52),
                                     width: 60.w,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: 20.h,
-                                          child: Stack(
-                                            children: [
-                                              Text(
-                                                '이완기혈압',
-                                                style: TextStyle(
-                                                  color: const Color(
-                                                    0xFF505050,
-                                                  ),
-                                                  fontSize: 12,
-                                                  fontFamily: 'Pretendard',
-                                                  fontWeight: FontWeight.w400,
-                                                  height: 0.50,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                    height: 20.h,
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      '이완기혈압',
+                                      style: TextStyle(
+                                        color: const Color(
+                                          0xFF505050,
                                         ),
-                                      ],
+                                        fontSize: 12,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.50,
+                                      ),
                                     ),
                                   ),
                                   // 맥박
                                   Container(
                                     margin: EdgeInsets.only(left: 51),
                                     width: 60.w,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: 20.h,
-                                          child: Stack(
-                                            children: [
-                                              Text(
-                                                '맥박',
-                                                style: TextStyle(
-                                                  color: const Color(
-                                                    0xFF505050,
-                                                  ),
-                                                  fontSize: 12,
-                                                  fontFamily: 'Pretendard',
-                                                  fontWeight: FontWeight.w400,
-                                                  height: 0.50,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                    height: 20.h,
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      '맥박',
+                                      style: TextStyle(
+                                        color: const Color(
+                                          0xFF505050,
                                         ),
-                                      ],
+                                        fontSize: 12,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0.50,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -477,6 +436,82 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         ],
                                       ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        // 서로 비교한 혈압 표시
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 28),
+                              height: 8.h,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
+                                        SizedBox(width: 4,),
+                                        Text(
+                                          '6.0 mmHg',
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                            color: const Color(0xFFFF7F74),
+                                            fontSize: 8,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 0.75,
+                                            letterSpacing: -0.20,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 64),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
+                                        SizedBox(width: 4,),
+                                        Text(
+                                          '6.0 mmHg',
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                            color: const Color(0xFFFF7F74),
+                                            fontSize: 8,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 0.75,
+                                            letterSpacing: -0.20,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 67),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
+                                        SizedBox(width: 4,),
+                                        Text(
+                                          '6.0 bpm',
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                            color: const Color(0xFFFF7F74),
+                                            fontSize: 8,
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            height: 0.75,
+                                            letterSpacing: -0.20,
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ],
