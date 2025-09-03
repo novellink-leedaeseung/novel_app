@@ -8,10 +8,11 @@ Future<DateTime?> showCompactCalendarDialog(
 }) {
   final now = DateTime.now();
   final init = initialDate ?? DateTime(now.year, now.month, now.day);
+  DateTime selectedDate = init; // 선택된 날짜를 저장할 변수
 
   return showDialog<DateTime>(
     context: context,
-    barrierDismissible: true, // 다이얼로그 바깥 탭으로 닫기 허용
+    barrierDismissible: true,
     builder: (ctx) {
       return Dialog(
         insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
@@ -19,7 +20,7 @@ Future<DateTime?> showCompactCalendarDialog(
         child: ConstrainedBox(
           constraints: const BoxConstraints(
             minWidth: 280,
-            maxWidth: 360, // 조그만한 창 크기
+            maxWidth: 360,
           ),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
@@ -55,12 +56,12 @@ Future<DateTime?> showCompactCalendarDialog(
                   firstDate: firstDate ?? DateTime(2000, 1, 1),
                   lastDate: lastDate ?? DateTime(2100, 12, 31),
                   onDateChanged: (d) {
-                    // 날짜 탭하면 즉시 반환(다이얼로그 닫힘)
-                    Navigator.of(ctx).pop(DateTime(d.year, d.month, d.day));
+                    // 날짜 선택시 바로 닫지 않고 선택된 날짜만 저장
+                    selectedDate = DateTime(d.year, d.month, d.day);
                   },
                 ),
 
-                // 하단 빠른 액션
+                // 하단 액션 버튼들
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -69,6 +70,12 @@ Future<DateTime?> showCompactCalendarDialog(
                       onPressed: () {
                         final t = DateTime.now();
                         Navigator.of(ctx).pop(DateTime(t.year, t.month, t.day));
+                      },
+                    ),
+                    TextButton(
+                      child: const Text('확인'),
+                      onPressed: () {
+                        Navigator.of(ctx).pop(selectedDate);
                       },
                     ),
                   ],
