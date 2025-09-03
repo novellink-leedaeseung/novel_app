@@ -10,10 +10,10 @@ import '../component/bp/bp_app_bar_widget.dart';
 import '../component/bp/bp_log_sheet_widget.dart';
 import '../component/bp/bp_segmented_switch.dart';
 import '../component/date_center_with_calendar_widget.dart';
-import '../component/guidance_panel_widget.dart';
-import '../component/graph_section_widget.dart';
-import '../component/pressure_monitoring_widget.dart';
-import '../component/summary_row_widget.dart';
+import '../component/blood-pressure-info/guidance_panel_widget.dart';
+import '../component/blood-pressure-info/graph_section_widget.dart';
+import '../component/blood-pressure-info/pressure_monitoring_widget.dart';
+import '../component/blood-pressure-info/summary_row_widget.dart';
 
 class BloodPressureInfo extends StatefulWidget {
   const BloodPressureInfo({super.key});
