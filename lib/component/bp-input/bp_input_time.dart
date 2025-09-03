@@ -51,15 +51,17 @@ class BpInputTime extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(left: 24, right: 11, top: 8),
-              width: 158,
-              height: 60,
+              width: 158.w,
+              height: 60.h,
               decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(
-                  color: const Color(0xFF505050), // 필요 없으면 지워도 됨
-                  width: 0.5,
+                border: Border.all(color: Colors.black, width: 0.5),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  bottomLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
                 ),
-                borderRadius: BorderRadius.circular(16), // 필요시
               ),
               child: ExampleCalendarButton(), // 달력
             ),
