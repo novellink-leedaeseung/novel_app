@@ -20,28 +20,30 @@ class GuidancePanel extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 15),
-          child: Column(
-            children: const [
-              _GuideTitleRow(),
-              SizedBox(height: 4),
-              _GuideLine(
-                leading: "혈압은 ",
-                highlight: "고혈압1기",
-                trailing: " 입니다.",
-              ),
-              SizedBox(height: 8),
-              _GuideLine(
-                leading: "수축기 혈압은 적정범위까지 ",
-                highlight: "-61",
-                trailing: " 남았습니다.",
-              ),
-              SizedBox(height: 8),
-              _GuideLine(
-                leading: "이완기 혈압은 적정범위까지 ",
-                highlight: "-9",
-                trailing: " 남았습니다.",
-              ),
-            ],
+          child: Container(
+            child: Column(
+              children: const [
+                _GuideTitleRow(),
+                SizedBox(height: 24),
+                _GuideLine(
+                  leading: "•  혈압은 ",
+                  highlight: "고혈압1기",
+                  trailing: " 입니다.",
+                ),
+                SizedBox(height: 8),
+                _GuideLine(
+                  leading: "•  수축기 혈압은 적정범위까지 ",
+                  highlight: "-61",
+                  trailing: " 남았습니다.",
+                ),
+                SizedBox(height: 8),
+                _GuideLine(
+                  leading: "•  이완기 혈압은 적정범위까지 ",
+                  highlight: "-9",
+                  trailing: " 남았습니다.",
+                ),
+              ],
+            ),
           ),
         ),
       ),
