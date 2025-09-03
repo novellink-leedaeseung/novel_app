@@ -4,7 +4,7 @@ class BpInputMeasure extends StatelessWidget {
   final String label;
   final String hint;
   final String unit;
-  EdgeInsetsGeometry margin = const EdgeInsets.only(top: 30, left: 24, right: 24);
+  EdgeInsetsGeometry margin = const EdgeInsets.only(top: 30, left: 24, right: 24,bottom: 8);
 
   // 재사용 입력 위젯
   BpInputMeasure({
@@ -24,12 +24,12 @@ class BpInputMeasure extends StatelessWidget {
           width: 327,
           child: Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               color: Color(0xFF505050),
               fontSize: 18,
               fontFamily: 'Pretendard',
               fontWeight: FontWeight.w600,
-              height: 1.22,
+              height: 0.07,
               letterSpacing: -0.45,
             ),
           ),

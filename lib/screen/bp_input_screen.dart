@@ -70,7 +70,8 @@ class _BpInputContent extends StatelessWidget {
         // 측정 시간, 측정 일자
         BpInputTime(),
         // 수축기
-        BpInputMmhg(),
+        // BpInputMmhg(),
+        BpInputMeasure(label: '수축기 혈압', hint: '88', unit: 'mmHg'),
         // 이완기
         BpInputMeasure(label: '이완기 혈압', hint: '88', unit: 'mmHg'),
         // 맥박

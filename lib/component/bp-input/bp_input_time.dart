@@ -31,6 +31,7 @@ class BpInputTime extends StatelessWidget {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(left: 13),
               width: 157.w,
               height: 22.h,
               child: Text(
