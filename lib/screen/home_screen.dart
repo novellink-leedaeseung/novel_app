@@ -223,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         ),
+                        // 혈압
                         Row(
                           children: [
                             Container(
@@ -334,6 +335,155 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         ),
+
+                        // 수치 표현
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 14),
+                              width: 303.w,
+                              height: 25.h,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 80.w,
+                                    height: 25.h,
+                                    child: Text.rich(
+                                      textAlign: TextAlign.center,
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '148',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 20,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.10,
+                                              letterSpacing: -0.50,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' ',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 12,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w700,
+                                              height: 1.83,
+                                              letterSpacing: -0.30,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'mmHg',
+                                            style: TextStyle(
+                                              color: const Color(0xFF505050),
+                                              fontSize: 14,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.57,
+                                              letterSpacing: -0.35,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 32),
+                                    width: 80.w,
+                                    height: 25.h,
+                                    child: Text.rich(
+                                      textAlign: TextAlign.center,
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '88',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 20,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.10,
+                                              letterSpacing: -0.50,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' ',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 12,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w700,
+                                              height: 1.83,
+                                              letterSpacing: -0.30,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'mmHg',
+                                            style: TextStyle(
+                                              color: const Color(0xFF505050),
+                                              fontSize: 14,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.57,
+                                              letterSpacing: -0.35,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 31),
+                                    width: 80.w,
+                                    height: 25.h,
+                                    child: Text.rich(
+                                      textAlign: TextAlign.center,
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '70',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 20,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.10,
+                                              letterSpacing: -0.50,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' ',
+                                            style: TextStyle(
+                                              color: const Color(0xFF111111),
+                                              fontSize: 12,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w700,
+                                              height: 1.83,
+                                              letterSpacing: -0.30,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'bpm',
+                                            style: TextStyle(
+                                              color: const Color(0xFF505050),
+                                              fontSize: 14,
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.57,
+                                              letterSpacing: -0.35,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
