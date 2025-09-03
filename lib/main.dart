@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:novel/screen/blood-pressure-info.dart';
+import 'package:novel/screen/blood_pressure_info.dart';
 import 'package:novel/screen/home_screen.dart';
 
 void main() => runApp(const MyApp());

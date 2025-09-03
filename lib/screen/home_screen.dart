@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:novel/component/bottom-bar.dart';
+import 'package:novel/component/common/bottom-bar.dart';
 import 'package:novel/component/text-colors.dart';
-import 'package:novel/component/welcome-banner.dart';
+import 'package:novel/component/home-screen/welcome-banner.dart';
 import 'package:novel/iPhone_top.dart';
 import 'package:novel/primary-color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../component/notice.dart';
-import '../component/user-profile.dart';
+import '../component/home-screen/notice.dart';
+import '../component/home-screen/user-profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
