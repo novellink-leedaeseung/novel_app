@@ -1,7 +1,7 @@
 // lib/screen/bp/summary_row.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:novel/component/range_segment_bar.dart';
+import 'package:novel/component/blood-pressure-info/range_segment_bar.dart';
 import 'package:novel/component/ui_decorations.dart';
 import 'package:novel/primary-color.dart';
 
