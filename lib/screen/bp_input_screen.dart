@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:novel/component/bp-input/bp_input_contraction_mmHg.dart';
 import 'package:novel/component/bp-input/bp_input_time.dart';
 
-import 'bp-input/bp_input_Measure.dart';
-import 'bp-input/bp_input_top.dart';
+import '../component/bp-input/bp_input_Measure.dart';
+import '../component/bp-input/bp_input_top.dart';
 
 Future<void> showBpInputModal(BuildContext context) {
   return showModalBottomSheet(

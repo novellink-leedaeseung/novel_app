@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:intl/intl.dart';
 
 class ExampleCalendarButton extends StatefulWidget {
   const ExampleCalendarButton({super.key});
@@ -17,31 +19,63 @@ class _ExampleCalendarButtonState extends State<ExampleCalendarButton> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(_selected == null ? '날짜 없음' : _selected!.toIso8601String().split('T').first),
-        TextButton(
-          child: const Text('달력'), // 달력
-          onPressed: () async {
-            final picked = await showCompactCalendarDialog(
-              context,
-              initialDate: _selected,
-            );
-            if (picked != null) {
-              setState(() => _selected = picked);
-              // 필요하면 여기서 상위로 전달/콜백 호출 가능
-            }
-          },
-        ),
+        if (_selected == null)
+          Container(
+            // margin: EdgeInsets.only(left: 24),
+            child: Row(
+              children: [
+                TextButton(
+                  onPressed: () async {
+                    final picked = await showCompactCalendarDialog(
+                      context,
+                      initialDate: _selected,
+                    );
+                    if (picked != null) {
+                      setState(() => _selected = picked);
+                      // 필요하면 여기서 상위로 전달/콜백 호출 가능
+                    }
+                  },
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icon/calendar.svg",
+                        colorFilter: ColorFilter.mode(
+                          Color(0xFF8C8C8C), // 원하는 색상
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        "${DateFormat('yyyy.MM.dd').format(DateTime.now())}",
+                        style: TextStyle(
+                          color: const Color(0xFF8C8C8C),
+                          fontSize: 16,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                          letterSpacing: -0.40,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        // 다른 위젯들...
+        else
+          Text(_selected!.toIso8601String().split('T').first),
       ],
     );
   }
 }
 
 Future<DateTime?> showCompactCalendarDialog(
-    BuildContext context, {
-      DateTime? initialDate,
-      DateTime? firstDate,
-      DateTime? lastDate,
-    }) {
+  BuildContext context, {
+  DateTime? initialDate,
+  DateTime? firstDate,
+  DateTime? lastDate,
+}) {
   final now = DateTime.now();
   final init = initialDate ?? DateTime(now.year, now.month, now.day);
   DateTime selectedDate = init; // 선택된 날짜를 저장할 변수
@@ -54,10 +88,7 @@ Future<DateTime?> showCompactCalendarDialog(
         insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            minWidth: 280,
-            maxWidth: 360,
-          ),
+          constraints: const BoxConstraints(minWidth: 280, maxWidth: 360),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
             child: Column(

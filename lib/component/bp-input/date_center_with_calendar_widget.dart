@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:novel/component/bp_input_widget.dart';
+import 'package:novel/screen/bp_input_screen.dart';
 
 class CalendarIconButton extends StatelessWidget {
   const CalendarIconButton({
