@@ -75,12 +75,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Column(
                       children: [
+                        // 혈압, 고혈압1기, 날짜
                         Row(
                           children: [
                             Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 12,top:12),
+                                  margin: EdgeInsets.only(left: 12, top: 12),
                                   width: 303.w,
                                   height: 32.h,
                                   child: Row(
@@ -92,8 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                           children: [
                                             Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Container(
                                                   width: 24,
@@ -106,22 +109,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       Container(
                                                         width: 24,
                                                         height: 16,
-                                                        child: Image.asset("assets/icon/heart-blood.png"),
+                                                        child: Image.asset(
+                                                          "assets/icon/heart-blood.png",
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
                                                 ),
                                                 Container(
                                                   margin: EdgeInsets.symmetric(
-                                                    horizontal: 4
+                                                    horizontal: 4,
                                                   ),
                                                   child: Text(
                                                     '혈압',
                                                     style: TextStyle(
-                                                      color: const Color(0xFF111111),
+                                                      color: const Color(
+                                                        0xFF111111,
+                                                      ),
                                                       fontSize: 16,
                                                       fontFamily: 'Pretendard',
-                                                      fontWeight: FontWeight.w700,
+                                                      fontWeight:
+                                                          FontWeight.w700,
                                                       height: 2,
                                                       letterSpacing: -0.40,
                                                     ),
@@ -129,7 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                                 Container(
                                                   decoration: ShapeDecoration(
-                                                    color: const Color(0xFFC7503D),
+                                                    color: const Color(
+                                                      0xFFC7503D,
+                                                    ),
                                                     shape: OvalBorder(),
                                                   ),
                                                 ),
@@ -137,24 +147,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   width: 50.w,
                                                   height: 15.h,
                                                   decoration: ShapeDecoration(
-                                                    color: const Color(0xFFFEEAE2),
+                                                    color: const Color(
+                                                      0xFFFEEAE2,
+                                                    ),
                                                     shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(16),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            16,
+                                                          ),
                                                     ),
                                                   ),
                                                   child: Row(
-                                                    mainAxisSize: MainAxisSize.min,
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     spacing: 10,
                                                     children: [
                                                       Text(
                                                         '고혈압1기',
                                                         style: TextStyle(
-                                                          color: const Color(0xFFE5621C),
+                                                          color: const Color(
+                                                            0xFFE5621C,
+                                                          ),
                                                           fontSize: 10,
-                                                          fontFamily: 'Pretendard',
-                                                          fontWeight: FontWeight.w500,
+                                                          fontFamily:
+                                                              'Pretendard',
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                           height: 0.60,
                                                         ),
                                                       ),
@@ -172,8 +196,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         height: 10,
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           spacing: 10,
                                           children: [
                                             Text(
@@ -191,10 +217,120 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                     ],
-
                                   ),
                                 ),
                               ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 22, top: 11),
+                              width: 283.w,
+                              height: 20.h,
+                              child: Row(
+                                children: [
+                                  // 수축기 혈압
+                                  Container(
+                                    width: 60.w,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 20.h,
+                                          child: Stack(
+                                            children: [
+                                              Text(
+                                                '수축기혈압',
+                                                style: TextStyle(
+                                                  color: const Color(
+                                                    0xFF505050,
+                                                  ),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Pretendard',
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.50,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // 이완기 혈압
+                                  Container(
+                                    margin: EdgeInsets.only(left: 52),
+                                    width: 60.w,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 20.h,
+                                          child: Stack(
+                                            children: [
+                                              Text(
+                                                '이완기혈압',
+                                                style: TextStyle(
+                                                  color: const Color(
+                                                    0xFF505050,
+                                                  ),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Pretendard',
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.50,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // 맥박
+                                  Container(
+                                    margin: EdgeInsets.only(left: 51),
+                                    width: 60.w,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 20.h,
+                                          child: Stack(
+                                            children: [
+                                              Text(
+                                                '맥박',
+                                                style: TextStyle(
+                                                  color: const Color(
+                                                    0xFF505050,
+                                                  ),
+                                                  fontSize: 12,
+                                                  fontFamily: 'Pretendard',
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.50,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
