@@ -253,7 +253,7 @@ class BloodPressureCard extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 14),
+                  margin: const EdgeInsets.only(left: 14, top: 4),
                   width: 303.w,
                   height: 25.h,
                   child: Row(
