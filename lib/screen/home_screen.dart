@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 22, top: 11),
+                              margin: EdgeInsets.only(left: 22, top: 3),
                               width: 283.w,
                               height: 20.h,
                               child: Row(
@@ -237,13 +237,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     width: 60.w,
                                     height: 20.h,
+                                    alignment: Alignment.center,
                                     child: Text(
                                       textAlign: TextAlign.center,
                                       '수축기혈압',
                                       style: TextStyle(
-                                        color: const Color(
-                                          0xFF505050,
-                                        ),
+                                        color: const Color(0xFF505050),
                                         fontSize: 12,
                                         fontFamily: 'Pretendard',
                                         fontWeight: FontWeight.w400,
@@ -256,13 +255,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     margin: EdgeInsets.only(left: 52),
                                     width: 60.w,
                                     height: 20.h,
+                                    alignment: Alignment.center,
                                     child: Text(
                                       textAlign: TextAlign.center,
                                       '이완기혈압',
                                       style: TextStyle(
-                                        color: const Color(
-                                          0xFF505050,
-                                        ),
+                                        color: const Color(0xFF505050),
                                         fontSize: 12,
                                         fontFamily: 'Pretendard',
                                         fontWeight: FontWeight.w400,
@@ -275,13 +273,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     margin: EdgeInsets.only(left: 51),
                                     width: 60.w,
                                     height: 20.h,
+                                    alignment: Alignment.center,
                                     child: Text(
                                       textAlign: TextAlign.center,
                                       '맥박',
                                       style: TextStyle(
-                                        color: const Color(
-                                          0xFF505050,
-                                        ),
+                                        color: const Color(0xFF505050),
                                         fontSize: 12,
                                         fontFamily: 'Pretendard',
                                         fontWeight: FontWeight.w400,
@@ -448,15 +445,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 28),
+                              margin: EdgeInsets.only(left: 28, top: 4),
                               height: 8.h,
                               child: Row(
                                 children: [
                                   Container(
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
-                                        SizedBox(width: 4,),
+                                        SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                          width: 8,
+                                          height: 8,
+                                        ),
+                                        SizedBox(width: 4),
                                         Text(
                                           '6.0 mmHg',
                                           textAlign: TextAlign.right,
@@ -468,7 +469,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 0.75,
                                             letterSpacing: -0.20,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -476,8 +477,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     margin: EdgeInsets.only(left: 64),
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
-                                        SizedBox(width: 4,),
+                                        SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                          width: 8,
+                                          height: 8,
+                                        ),
+                                        SizedBox(width: 4),
                                         Text(
                                           '6.0 mmHg',
                                           textAlign: TextAlign.right,
@@ -489,7 +494,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 0.75,
                                             letterSpacing: -0.20,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -497,8 +502,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     margin: EdgeInsets.only(left: 67),
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset("assets/icon/polygon.svg",width: 8, height: 8,),
-                                        SizedBox(width: 4,),
+                                        SvgPicture.asset(
+                                          "assets/icon/polygon.svg",
+                                          width: 8,
+                                          height: 8,
+                                        ),
+                                        SizedBox(width: 4),
                                         Text(
                                           '6.0 bpm',
                                           textAlign: TextAlign.right,
@@ -510,7 +519,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 0.75,
                                             letterSpacing: -0.20,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -518,7 +527,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),

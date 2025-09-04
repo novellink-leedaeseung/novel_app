@@ -19,7 +19,7 @@ class BpInputTime extends StatelessWidget {
               width: 157.w,
               height: 22.h,
               child: Text(
-                " 측정 일자",
+                "측정 일자",
                 style: const TextStyle(
                   fontFamily: "Pretendard",
                   fontSize: 18,
