@@ -1,5 +1,6 @@
 // lib/api/kiosk-controller/kiosk_api_client.dart
 import 'package:dio/dio.dart';
+import 'package:novel/api/response/BaseResponseModel.dart';
 import 'package:novel/api/response/UserResponseModel.dart';
 import 'response/ApiResponseModel.dart';
 
@@ -30,7 +31,7 @@ class KioskApiClient {
   }
 
   // 결과 내보내기
-  Future<ApiResponse> setResult({
+  Future<BaseResponse> setResult({
     required String token,
     required String measureId,
     required String systolic,
@@ -55,7 +56,7 @@ class KioskApiClient {
           "serviceforce": serviceForce.toString(),
         },
       );
-      return ApiResponse.fromJson(response.data);
+      return BaseResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw _handleDioError(e);
     }
