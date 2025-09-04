@@ -1,85 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-class BpInputMeasure extends StatelessWidget {
+class BpInputMeasure extends StatefulWidget {
   final String label;
   final String hint;
   final String unit;
-  final ValueChanged<String>? onChanged;  // 추가: 값이 변경될 때 호출될 콜백
+  final ValueChanged<String>? onChanged;
 
   const BpInputMeasure({
     super.key,
     required this.label,
     required this.hint,
     required this.unit,
-    this.onChanged,  // 추가
+    this.onChanged,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          margin: EdgeInsets.only(left: 24, top: 12, bottom: 8),
-          width: 327,
-          child: Text(
-            label,
-            style: TextStyle(
-              color: const Color(0xFF505050),
-              fontSize: 18,
-              fontFamily: 'Pretendard',
-              fontWeight: FontWeight.w600,
-              height: 1.22,
-              letterSpacing: -0.45,
-            ),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 24,
-          ),
-          width: 327.w,
-          height: 60.h,
-          decoration: ShapeDecoration(
-            color: const Color(0x050066FF),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                width: 1,
-                color: const Color(0xFF505050),
-              ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
+  State<BpInputMeasure> createState() => _BpInputMeasureState();
+}
 
-          child: Container(
-            margin: EdgeInsets.only(left: 24, top: 18, bottom: 18),
-            child: Row(
-              children: [
-                Container(
-                  width: 50,
-                  height: 24,
-                  child: TextField(
-                    onChanged: onChanged,  // 추가: TextField의 값이 변경될 때 콜백 호출
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,         // 기본 언더라인 제거
-                      focusedBorder: InputBorder.none,  // 포커스 시 언더라인 제거
-                      enabledBorder: InputBorder.none,  // 활성화 상태에서도 제거
-                      hintText: hint,
-                      isDense: false,
-                    ),
-                  ),
-                ),
-                Text(
-                    "${unit}"
-                ),
-              ],
+class _BpInputMeasureState extends State<BpInputMeasure> {
+  final _focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.label,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF505050),
             ),
           ),
-        ),
-      ],
+          SizedBox(height: 8),
+          TextField(
+            focusNode: _focusNode,
+            onChanged: widget.onChanged,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              hintText: widget.hint,
+              suffixText: widget.unit,
+              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(
+                  color: Color(0xFF505050),
+                  width: 0.5,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(
+                  color: Color(0xff0075FF),  // 포커스 시 파란색
+                  width: 1.0,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
