@@ -19,13 +19,14 @@ class BpInputTime extends StatelessWidget {
               width: 157.w,
               height: 22.h,
               child: Text(
-                "측정 일자",
+                " 측정 일자",
                 style: const TextStyle(
                   fontFamily: "Pretendard",
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Color(0xff505050),
-                  height: 22 / 18,
+                  height: 1.22,
+                  letterSpacing: -0.45,
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -35,13 +36,14 @@ class BpInputTime extends StatelessWidget {
               width: 157.w,
               height: 22.h,
               child: Text(
-                "측정 시간",
+                " 측정 시간",
                 style: const TextStyle(
                   fontFamily: "Pretendard",
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Color(0xff505050),
-                  height: 22/18,
+                  height: 1.22,
+                  letterSpacing: -0.45,
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -51,10 +53,9 @@ class BpInputTime extends StatelessWidget {
         Row(
           children: [
             Container(
-              // margin: EdgeInsets.only(left: 24, right: 11, top: 8),
+              margin: EdgeInsets.only(left: 24, right: 11, top: 8),
               width: 158.w,
               height: 60.h,
-              padding: const EdgeInsets.all(0.5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Color(0xff505050), width: 0.5),

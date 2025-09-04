@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class TimePickerBox extends StatefulWidget {
   final String placeholder; // 초기 안내 문구
   final double width;
@@ -32,7 +31,7 @@ class _TimePickerBoxState extends State<TimePickerBox> {
       height: 60.h,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.black, width: 0.5),
+        border: Border.all(color: Color(0xff505050), width: 0.5),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(16),
           bottomLeft: Radius.circular(16),
@@ -40,82 +39,102 @@ class _TimePickerBoxState extends State<TimePickerBox> {
           bottomRight: Radius.circular(16),
         ),
       ),
-      alignment: Alignment.center,
       child: Row(
         children: [
           if (_selectedTime == null)
-            Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 18,
-                horizontal: 24
-              ),
-              child: Row(
-                children: [
-                  TextButton(
-                    onPressed: () async {
-                      final picked = await showTimePickerModal(
-                        context,
-                        minuteInterval: 5,
-                        autoCloseOnPick: false,
-                      );
-                      if (picked != null) {
-                        setState(() {
-                          _selectedTime = picked;
-                        });
-                      }
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+            Expanded(
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () async {
+                        final picked = await showTimePickerModal(
+                          context,
+                          minuteInterval: 5,
+                          autoCloseOnPick: false,
+                        );
+                        if (picked != null) {
+                          setState(() {
+                            _selectedTime = picked;
+                          });
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          if (_selectedTime == null)
+                            Container(
+                              width: 110.w,
+                              height: 24.h,
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 24,
+                                        child: SvgPicture.asset(
+                                          "assets/icon/shape.svg",
+                                          width: 18,
+                                          height: 18,
+                                          colorFilter: ColorFilter.mode(
+                                            Color(0xFF8C8C8C), // 원하는 색상
+                                            BlendMode.srcIn,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 6),
+                                      Container(
+                                        width: 80.w,
+                                        height: 24.h,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              DateTime.now().hour < 12
+                                                  ? 'AM '
+                                                  : 'PM ',
+                                              style: TextStyle(
+                                                color: const Color(0xFF8C8C8C),
+                                                fontSize: 16,
+                                                fontFamily: 'Pretendard',
+                                                fontWeight: FontWeight.w500,
+                                                height: 1.50,
+                                                letterSpacing: -0.40,
+                                              ),
+                                            ),
+                                            Text(
+                                              " ${DateFormat('hh:mm').format(DateTime.now())}",
+                                              style: TextStyle(
+                                                color: const Color(0xFF8C8C8C),
+                                                fontSize: 16,
+                                                fontFamily: 'Pretendard',
+                                                fontWeight: FontWeight.w500,
+                                                height: 1.50,
+                                                letterSpacing: -0.40,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
                       ),
                     ),
-                    child: Row(
-                      children: [
-                        if(_selectedTime == null)
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                "assets/icon/shape.svg",
-                                width: 18,
-                                height: 18,
-                                colorFilter: ColorFilter.mode(
-                                  Color(0xFF8C8C8C), // 원하는 색상
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                              SizedBox(width: 9),
-                              Text(
-                                DateTime.now().hour < 12 ? 'AM' : 'PM',
-                                style: TextStyle(
-                                  color: const Color(0xFF8C8C8C),
-                                  fontSize: 16,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                  letterSpacing: -0.40,
-                                ),
-                              ),
-                              Text(
-                                " ${DateFormat('hh:mm').format(DateTime.now())}",
-                                style: TextStyle(
-                                  color: const Color(0xFF8C8C8C),
-                                  fontSize: 16,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                  letterSpacing: -0.40,
-                                ),
-                              ),
-                            ],
-                          )
-
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           else
