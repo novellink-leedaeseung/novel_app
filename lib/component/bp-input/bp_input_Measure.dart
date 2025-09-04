@@ -53,16 +53,29 @@ class BpInputMeasure extends StatelessWidget {
             ),
           ),
 
-          child: TextField(
-            onChanged: onChanged,  // 추가: TextField의 값이 변경될 때 콜백 호출
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              border: InputBorder.none,         // 기본 언더라인 제거
-              focusedBorder: InputBorder.none,  // 포커스 시 언더라인 제거
-              enabledBorder: InputBorder.none,  // 활성화 상태에서도 제거
-              hintText: hint,
-              suffixText: unit,
-              isDense: false,
+          child: Container(
+            margin: EdgeInsets.only(left: 24, top: 18, bottom: 18),
+            child: Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 24,
+                  child: TextField(
+                    onChanged: onChanged,  // 추가: TextField의 값이 변경될 때 콜백 호출
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,         // 기본 언더라인 제거
+                      focusedBorder: InputBorder.none,  // 포커스 시 언더라인 제거
+                      enabledBorder: InputBorder.none,  // 활성화 상태에서도 제거
+                      hintText: hint,
+                      isDense: false,
+                    ),
+                  ),
+                ),
+                Text(
+                    "${unit}"
+                ),
+              ],
             ),
           ),
         ),
