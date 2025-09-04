@@ -100,8 +100,8 @@ class _TimePickerBoxState extends State<TimePickerBox> {
                                           children: [
                                             Text(
                                               DateTime.now().hour < 12
-                                                  ? 'AM '
-                                                  : 'PM ',
+                                                  ? 'AM'
+                                                  : 'PM',
                                               style: TextStyle(
                                                 color: const Color(0xFF8C8C8C),
                                                 fontSize: 16,
