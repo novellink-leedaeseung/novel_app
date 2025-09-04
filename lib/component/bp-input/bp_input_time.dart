@@ -15,7 +15,7 @@ class BpInputTime extends StatelessWidget {
         Row(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 24),
+              margin: EdgeInsets.only(left: 24, top: 15),
               width: 157.w,
               height: 22.h,
               child: Text(
@@ -32,7 +32,7 @@ class BpInputTime extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 13),
+              margin: EdgeInsets.only(left: 13, top: 15),
               width: 157.w,
               height: 22.h,
               child: Text(
