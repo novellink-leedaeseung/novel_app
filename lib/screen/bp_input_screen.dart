@@ -88,10 +88,6 @@ class _BpInputContentState extends State<_BpInputContent> {
               debugPrint('수축기 혈압: $_systolic mmHg');
               debugPrint('이완기 혈압: $_diastolic mmHg');
               debugPrint('맥박: $_pulse bpm');
-              final response = await dio.post(
-                'https://novel.rosq.co.kr:8488/api/auth-kiosk',
-                data: {"kioskid": "MTA001"},
-              );
 
               final kioskApiclient = KioskApiClient();
               Future<ApiResponse> authKiosk = kioskApiclient.authKiosk(
@@ -122,28 +118,6 @@ class _BpInputContentState extends State<_BpInputContent> {
                       ),
                 },
               );
-
-              final apiResponse = ApiResponse.fromJson(response.data);
-
-              // 이제 응답 데이터를 타입 안전하게 사용할 수 있습니다
-              print('응답 코드: ${apiResponse.resultCode}');
-              print('토큰: ${apiResponse.resultData.token}');
-              final dataSend = await dio.post(
-                'https://novel.rosq.co.kr:8488/api/set-result',
-                data: {
-                  "token": "${apiResponse.resultData.token}",
-                  "measureid": "30-95-20250904200149-e0d72c",
-                  "device": "BP",
-                  "result": {
-                    "high": _systolic,
-                    "low": _diastolic,
-                    "pulse": _pulse,
-                    "status": "고혈압",
-                  },
-                  "serviceforce": "true",
-                },
-              );
-              print(dataSend);
             },
           ),
           // 측정 시간, 측정 일자
