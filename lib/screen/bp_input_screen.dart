@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:novel/component/bp-input/bp_input_contraction_mmHg.dart';
 import 'package:novel/component/bp-input/bp_input_time.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../api/kiosk-controller.dart';
 import '../api/response/ApiResponseModel.dart';
@@ -146,6 +148,7 @@ class _BpInputContentState extends State<_BpInputContent> {
           ),
           // 측정 시간, 측정 일자
           BpInputTime(),
+          SizedBox(height: 18.h,),
           // 수축기
           BpInputMeasure(
             label: '수축기 혈압',
