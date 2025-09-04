@@ -4,14 +4,14 @@ class BpInputMeasure extends StatelessWidget {
   final String label;
   final String hint;
   final String unit;
-  EdgeInsetsGeometry margin = const EdgeInsets.only(top: 30, left: 24, right: 24,bottom: 8);
+  final ValueChanged<String>? onChanged;  // 추가: 값이 변경될 때 호출될 콜백
 
-  // 재사용 입력 위젯
-  BpInputMeasure({
+  const BpInputMeasure({
     super.key,
     required this.label,
     required this.hint,
     required this.unit,
+    this.onChanged,  // 추가
   });
 
   @override
@@ -19,61 +19,24 @@ class BpInputMeasure extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          margin: this.margin,
-          width: 327,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
           child: Text(
             label,
-            style: TextStyle(
-              color: Color(0xFF505050),
-              fontSize: 18,
-              fontFamily: 'Pretendard',
-              fontWeight: FontWeight.w600,
-              height: 0.07,
-              letterSpacing: -0.45,
-            ),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(top: 8, left: 24, right: 24),
-          height: 60,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              width: 0.50,
-              color: const Color(0xFF505050),
-            ),
-          ),
-          child: TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              border: InputBorder.none,
-              hintText: hint,
-              hintStyle: const TextStyle(
-                color: Color(0xFF111111),
-                fontSize: 16,
-                fontFamily: 'Pretendard',
-              ),
-              suffix: Text(
-                unit,
-                style: const TextStyle(
-                  color: Color(0xFF505050),
-                  fontSize: 14,
-                  fontFamily: 'Pretendard',
-                ),
-              ),
-            ),
-            style: const TextStyle(
-              color: Color(0xFF111111),
-              fontSize: 16,
-              fontFamily: 'Pretendard',
-            ),
+        TextField(
+          onChanged: onChanged,  // 추가: TextField의 값이 변경될 때 콜백 호출
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            hintText: hint,
+            suffixText: unit,
+            border: const OutlineInputBorder(),
+            isDense: true,
           ),
         ),
       ],
     );
   }
-
 }
