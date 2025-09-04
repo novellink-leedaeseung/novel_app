@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ScreenUtil.init(context, designSize: Size(375, 812));
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffF9FAFB),
       body: Column(
         children: [
           SizedBox(

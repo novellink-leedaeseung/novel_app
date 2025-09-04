@@ -47,7 +47,7 @@ class WelcomeBanner extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 10,
-                        fontFamily: 'Inter',
+                        fontFamily: 'Pretendard',
                         fontWeight: FontWeight.w600,
                         height: 0.22,
                         letterSpacing: -0.50,

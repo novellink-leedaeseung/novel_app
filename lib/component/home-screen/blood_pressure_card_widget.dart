@@ -32,16 +32,18 @@ class BloodPressureCard extends StatelessWidget {
     return Container(
       width: 327.w,
       height: 115.h,
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        shadows: [
           BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.25), // ✅ 회색 그림자
-            offset: Offset(4, 4), // x=4, y=4
-            blurRadius: 4, // 블러 4
-            spreadRadius: 0, // 스프레드 0
-          ),
+            color: Color(0x0F000000),
+            blurRadius: 4,
+            offset: Offset(4, 4),
+            spreadRadius: 0,
+          )
         ],
       ),
       margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
