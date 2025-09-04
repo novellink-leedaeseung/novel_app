@@ -74,51 +74,52 @@ class _TimePickerBoxState extends State<TimePickerBox> {
                     ),
                     child: Row(
                       children: [
-                        SvgPicture.asset(
-                          "assets/icon/shape.svg",
-                          width: 18,
-                          height: 18,
-                          colorFilter: ColorFilter.mode(
-                            Color(0xFF8C8C8C), // 원하는 색상
-                            BlendMode.srcIn,
-                          ),
-                        ),
-                        SizedBox(width: 9),
-                        Text(
-                          DateTime.now().hour < 12 ? 'AM' : 'PM',
-                          style: TextStyle(
-                            color: const Color(0xFF8C8C8C),
-                            fontSize: 16,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            height: 1.50,
-                            letterSpacing: -0.40,
-                          ),
-                        ),
-                        Text(
-                          " ${DateFormat('hh:mm').format(DateTime.now())}",
-                          style: TextStyle(
-                            color: const Color(0xFF8C8C8C),
-                            fontSize: 16,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            height: 1.50,
-                            letterSpacing: -0.40,
-                          ),
-                        ),
+                        if(_selectedTime == null)
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/icon/shape.svg",
+                                width: 18,
+                                height: 18,
+                                colorFilter: ColorFilter.mode(
+                                  Color(0xFF8C8C8C), // 원하는 색상
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                              SizedBox(width: 9),
+                              Text(
+                                DateTime.now().hour < 12 ? 'AM' : 'PM',
+                                style: TextStyle(
+                                  color: const Color(0xFF8C8C8C),
+                                  fontSize: 16,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                  letterSpacing: -0.40,
+                                ),
+                              ),
+                              Text(
+                                " ${DateFormat('hh:mm').format(DateTime.now())}",
+                                style: TextStyle(
+                                  color: const Color(0xFF8C8C8C),
+                                  fontSize: 16,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                  letterSpacing: -0.40,
+                                ),
+                              ),
+                            ],
+                          )
+
                       ],
                     ),
                   ),
                 ],
               ),
-            ),
-
-          /*child: Text(
-              _selectedTime != null
-        ? _selectedTime!.format(context) // 선택된 시간 표시
-        : widget.placeholder,            // 초기 안내 문구
-              style: const TextStyle(fontSize: 16, color: Colors.black),
-            ),*/
+            )
+          else
+            Text("${_selectedTime}"),
         ],
       ),
     );
