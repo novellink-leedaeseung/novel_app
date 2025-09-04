@@ -51,12 +51,13 @@ class BpInputTime extends StatelessWidget {
         Row(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 24, right: 11, top: 8),
+              // margin: EdgeInsets.only(left: 24, right: 11, top: 8),
               width: 158.w,
               height: 60.h,
+              padding: const EdgeInsets.all(0.5),
               decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(color: Colors.black, width: 0.5),
+                border: Border.all(color: Color(0xff505050), width: 0.5),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(16),
                   bottomLeft: Radius.circular(16),

@@ -21,36 +21,35 @@ class _ExampleCalendarButtonState extends State<ExampleCalendarButton> {
     return Row(
       children: [
         if (_selected == null)
-          Row(
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                onPressed: () async {
-                  final picked = await showCompactCalendarDialog(
-                    context,
-                    initialDate: _selected,
-                  );
-                  if (picked != null) {
-                    setState(() => _selected = picked);
-                    // 필요하면 여기서 상위로 전달/콜백 호출 가능
-                  }
-                },
-                child: Container(
-                  width: 110.w,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 116.w,
                   height: 24.h,
-                  margin: EdgeInsets.symmetric(vertical: 18, horizontal: 24),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 6),
-                        child: SvgPicture.asset(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () async {
+                      final picked = await showCompactCalendarDialog(
+                        context,
+                        initialDate: _selected,
+                      );
+                      if (picked != null) {
+                        setState(() => _selected = picked);
+                        // 필요하면 여기서 상위로 전달/콜백 호출 가능
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
                           "assets/icon/calendar.svg",
                           width: 24.w,
                           height: 24.h,
@@ -59,28 +58,29 @@ class _ExampleCalendarButtonState extends State<ExampleCalendarButton> {
                             BlendMode.srcIn,
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 80.w,
-                        height: 24.h,
-                        child: Text(
-                          DateFormat('yyyy.MM.dd').format(DateTime.now()),
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            color: const Color(0xFF8C8C8C),
-                            fontSize: 16,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            height: 1.50,
-                            letterSpacing: -0.40,
+                        SizedBox(width: 6,),
+                        SizedBox(
+                          width: 86.w,
+                          height: 24.h,
+                          child: Text(
+                            DateFormat('yyyy.MM.dd').format(DateTime.now()).padLeft(2, '0'),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: const Color(0xFF8C8C8C),
+                              fontSize: 16,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
+                              letterSpacing: -0.4,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           )
         // 다른 위젯들...
         else
@@ -89,6 +89,7 @@ class _ExampleCalendarButtonState extends State<ExampleCalendarButton> {
     );
   }
 }
+
 
 Future<DateTime?> showCompactCalendarDialog(
   BuildContext context, {
