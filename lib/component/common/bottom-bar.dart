@@ -43,9 +43,9 @@ class BottomBar extends StatelessWidget {
         height: 56,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Colors.white, // 선택 시 파란 배경
+          color: Color(0xffF9FAFB), // 선택 시 파란 배경
           shape: BoxShape.circle,
-          boxShadow: [BoxShadow(color: Colors.white, blurRadius: 12, offset: const Offset(0, 4))]
+          boxShadow: [BoxShadow(color: Color(0xffF9FAFB), blurRadius: 12, offset: const Offset(0, 4))]
         ),
         child: SvgPicture.asset(
           asset,
