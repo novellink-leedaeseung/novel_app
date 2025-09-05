@@ -7,19 +7,24 @@ import 'bp_card_widget.dart';
 Future<void> showBpLogSheet(BuildContext context) {
   return showModalBottomSheet(
     context: context,
-    isScrollControlled: true, // 필요 시 전체 높이 사용 가능(고정에는 영향 없음)
+    isScrollControlled: true,
+    // 필요 시 전체 높이 사용 가능(고정에는 영향 없음)
     backgroundColor: Colors.transparent,
     barrierColor: Colors.black38,
-    isDismissible: false, // 배리어 탭으로 닫히지 않음
-    enableDrag: false,    // 모달 자체 드래그로 닫히지 않음
+    isDismissible: false,
+    // 배리어 탭으로 닫히지 않음
+    enableDrag: false,
+    // 모달 자체 드래그로 닫히지 않음
     builder: (context) {
       return WillPopScope(
         onWillPop: () async => false, // 시스템 뒤로가기 차단
         child: DraggableScrollableSheet(
           expand: true,
           initialChildSize: 0.92,
-          minChildSize: 0.92, // 아래로 줄어들지 않도록 고정
-          maxChildSize: 0.92, // 위로도 늘어나지 않도록 고정
+          minChildSize: 0.92,
+          // 아래로 줄어들지 않도록 고정
+          maxChildSize: 0.92,
+          // 위로도 늘어나지 않도록 고정
           builder: (context, scrollController) {
             return Container(
               decoration: const BoxDecoration(
@@ -29,39 +34,64 @@ Future<void> showBpLogSheet(BuildContext context) {
                   topRight: Radius.circular(24),
                 ),
                 boxShadow: [
-                  BoxShadow(color: Colors.black12, blurRadius: 20, offset: Offset(0, -6)),
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 20,
+                    offset: Offset(0, -6),
+                  ),
                 ],
               ),
               child: Column(
                 children: [
-                  const SizedBox(height: 24),
                   // 헤더
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: 56.h,
-                        child: Row(
-                          children: [
-                            ElevatedButton(onPressed: () { context.pop(); },
-                            child: SvgPicture.asset("assets/icon/close.svg")),
-                            const SizedBox(width: 106),
-                            const Text(
-                              '혈압기록',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF227EFF),
-                                fontFamily: 'Pretendard',
-                                fontSize: 20,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w700,
-                                height: 24 / 20,
-                                letterSpacing: -0.5,
+                  Container(
+                    margin: EdgeInsets.only(top: 24),
+                    width: 375.w,
+                    height: 56.h,
+                    child: Container(
+                      margin: EdgeInsets.only(left: 24),
+                      width: 198.w,
+                      height: 24.h,
+                      child: Row(
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 24.w, height: 24.h, // 화면 비율 적용하려면 24.w/24.h
+                                child: IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints.tightFor(width: 24, height: 24),
+                                  onPressed: () {context.pop();},
+                                  icon: SvgPicture.asset(
+                                    'assets/icon/close.svg',
+                                    width: 24, height: 24,
+                                    // 색 바꾸려면:
+                                    colorFilter: const ColorFilter.mode(Color(0xff227EFF), BlendMode.srcIn),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
+                              Container(
+                                margin: EdgeInsets.only(left: 106),
+                                width: 68.w,
+                                height: 24.h,
+                                child: Text(
+                                  '혈압기록',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xFF227EFF),
+                                    fontFamily: 'Pretendard',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.20,
+                                    letterSpacing: -0.50,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   const Divider(height: 1),
 
@@ -69,7 +99,8 @@ Future<void> showBpLogSheet(BuildContext context) {
                   Expanded(
                     child: ListView.separated(
                       controller: scrollController,
-                      physics: const ClampingScrollPhysics(), // 탄성 스크롤 억제
+                      physics: const ClampingScrollPhysics(),
+                      // 탄성 스크롤 억제
                       padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
                       itemCount: 10,
                       separatorBuilder: (_, __) => const SizedBox(height: 16),

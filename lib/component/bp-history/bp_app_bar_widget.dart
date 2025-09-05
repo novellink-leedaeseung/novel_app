@@ -65,17 +65,7 @@ class BpAppBar extends StatelessWidget implements PreferredSizeWidget {
                     minimumSize: Size.zero,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
-                  child: const Text(
-                    '목록',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Pretendard',
-                      height: 0.06,
-                      letterSpacing: -0.50,
-                    ),
-                  )
+                  child: SvgPicture.asset("assets/icon/menu.svg")
                 ),
               ],
             ),
