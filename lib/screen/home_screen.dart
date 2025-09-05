@@ -20,33 +20,33 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(375, 812));
-
     return Scaffold(
-      backgroundColor: Color(0xffF9FAFB),
+      backgroundColor: const Color(0xffF9FAFB),
       body: Column(
         children: [
-          SizedBox(
+          // 안전 영역 + 헤더
+          SafeArea(
+            bottom: false,
             child: Container(
-              color: Color(0xFF227EFF),
+              width: double.infinity,
+              color: const Color(0xFF227EFF),
+              padding: EdgeInsets.only(bottom: 12.h),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  // 다이나믹 아일랜드 및 노치
-                  IphoneTop(),
-                  // 프로필 사진, 사용자 이름, 사람모양, 옵션
-                  UserProfile(),
-                  // 환영메시지, 기업회원 버튼
-                  WelcomeBanner(),
+                  const UserProfile(),
+                  const WelcomeBanner(),
                 ],
               ),
             ),
           ),
-          // 스크롤바
+
+          // 스크롤 영역
           Expanded(
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                Notice(),
+                const Notice(),
                 BloodPressureCard(
                   dateText: '2025.08.15',
                   statusText: '고혈압1기',
@@ -56,16 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   systolicDiffText: '6.0 mmHg',
                   diastolicDiffText: '6.0 mmHg',
                   pulseDiffText: '6.0 bpm',
-                  onPressed: () {
-                    context.go('/blood-pressure/info');
-                  },
+                  onPressed: () => context.go('/blood-pressure/info'),
                 ),
               ],
             ),
           ),
 
           // 하단 바
-          BottomBar(location: 'home'),
+          const BottomBar(location: 'home'),
           SizedBox(height: 34.h),
         ],
       ),

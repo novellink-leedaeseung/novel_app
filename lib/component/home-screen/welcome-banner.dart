@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -9,15 +8,13 @@ class WelcomeBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(375, 812));
-
     return Container(
       margin: EdgeInsets.only(left: 24, bottom: 14, top: 14),
       child: Row(
         children: [
           SizedBox(
-            width: 190.w,
-            height: 42.h,
+            width: 190,
+            height: 42,
             child: Text(
               "메디터치에 오신 걸 환영합니다. 스마트하게 건강 관리하세요!",
               softWrap: true,
@@ -35,8 +32,8 @@ class WelcomeBanner extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(left: 49, right: 24),
             child: SizedBox(
-              width: 88.w,
-              height: 24.h,
+              width: 88,
+              height: 24,
               child: Row(
                 children: [
                   SvgPicture.asset("assets/icon/office.svg"),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // 프로필 사진, 사용자 이름, 사람모양, 옵션
@@ -8,22 +7,21 @@ class UserProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(375, 812));
 
     return Container(
       margin: EdgeInsets.only(top: 12),
-      width: 327.w,
-      height: 54.h,
+      width: 327,
+      height: 54,
       child: Row(
         children: [
           SizedBox(
-            width: 145.w,
-            height: 54.h,
+            width: 145,
+            height: 54,
             child: Row(
               children: [
                 SizedBox(
-                  width: 54.w,
-                  height: 54.w,
+                  width: 54,
+                  height: 54,
                   child: ClipOval(
                     child: Image.asset(
                       'assets/images/profile/profile.jpg',
@@ -34,8 +32,8 @@ class UserProfile extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 79.w,
-                  height: 31.h,
+                  width: 79,
+                  height: 31,
                   margin: EdgeInsets.fromLTRB(12, 11.5, 0, 11.5),
                   child: Row(
                     children: [
@@ -47,15 +45,15 @@ class UserProfile extends StatelessWidget {
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
-                          height: 1.6.h,
+                          height: 1.6,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 9),
                         child: SvgPicture.asset(
                           'assets/icon/downward.svg',
-                          width: 14.w,
-                          height: 6.78.h,
+                          width: 14,
+                          height: 6.78,
                         ),
                       ),
                     ],
@@ -66,8 +64,8 @@ class UserProfile extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(left: 126, right: 8),
-            width: 24.w,
-            height: 24.h,
+            width: 24,
+            height: 24,
             child: IconButton(
               padding: EdgeInsets.only(),
               onPressed: () {},
@@ -75,8 +73,8 @@ class UserProfile extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 24.w,
-            height: 24.h,
+            width: 24,
+            height: 24,
             child: IconButton(
               padding: EdgeInsets.zero,
               onPressed: () {},
