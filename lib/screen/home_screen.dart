@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // ← 추가: 상태바 아이콘 색
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -24,19 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0xffF9FAFB),
       body: Column(
         children: [
-          // 안전 영역 + 헤더
-          SafeArea(
-            bottom: false,
+          // 파란 배경을 노치까지 칠하고, 내용만 SafeArea로 내리기
+          AnnotatedRegion<SystemUiOverlayStyle>(
+            value: SystemUiOverlayStyle.light, // 상태바 아이콘 밝게(흰색)
             child: Container(
               width: double.infinity,
               color: const Color(0xFF227EFF),
-              padding: EdgeInsets.only(bottom: 12.h),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const UserProfile(),
-                  const WelcomeBanner(),
-                ],
+              child: SafeArea(
+                bottom: false, // 상단만 보호
+                child: Column(
+                  children: const [
+                    UserProfileBar(),
+                    WelcomeBanner(),
+                  ],
+                ),
               ),
             ),
           ),
