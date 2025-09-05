@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../bp-input/calendar_icon_button_widget.dart';
 
@@ -57,7 +58,7 @@ class DateBarWithCalendarButton extends StatelessWidget {
               shadowColor: Colors.black.withOpacity(0.15),
               elevation: 4,
             ),
-            child: const Icon(Icons.add, size: 16, color: Colors.white),
+            child: SvgPicture.asset("assets/icon/plus.svg"),
           ),
         ),
         const SizedBox(width: 24),
