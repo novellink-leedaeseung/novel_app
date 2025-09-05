@@ -1,3 +1,4 @@
+// dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -85,12 +86,12 @@ class CalendarIconButton extends StatelessWidget {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.black38,
-      isDismissible: false, // 창 닫힘 방지
-      enableDrag: false,    // 드래그 닫힘 방지
+      isDismissible: false,
+      enableDrag: false,
       builder: (ctx) {
         return CalendarBottomSheet(
           initialDate: initialDate,
-          onPicked: (d) => onDatePicked?.call(d), // 선택만 전달, 닫지 않음
+          onPicked: (d) => onDatePicked?.call(d),
         );
       },
     );
@@ -120,7 +121,9 @@ class CalendarBottomSheet extends StatefulWidget {
 }
 
 class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
-  late ValueChanged<DateTime>? onTodayButtonPressed;
+  // 사용 안 하는 late 필드 제거
+  // late ValueChanged<DateTime>? onTodayButtonPressed;
+
   late DateTime _selectedDate;
 
   static const _headerHeight = 56.0;
@@ -136,13 +139,18 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
   void _selectDate(DateTime d) {
     final onlyDate = DateTime(d.year, d.month, d.day);
     setState(() => _selectedDate = onlyDate);
-    widget.onPicked(onlyDate); // 외부에 알림 (창은 닫지 않음)
+    widget.onPicked(onlyDate);
+  }
+
+  void _selectToday() {
+    final now = DateTime.now();
+    _selectDate(DateTime(now.year, now.month, now.day));
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false, // 뒤로가기 닫힘 방지
+      onWillPop: () async => false,
       child: DraggableScrollableSheet(
         expand: true,
         initialChildSize: 0.92,
@@ -174,7 +182,7 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
                   padding: EdgeInsets.zero,
                   physics: const ClampingScrollPhysics(),
                   children: [
-                    // 헤더 (스타일 유지)
+                    // 헤더
                     SizedBox(
                       width: double.infinity,
                       height: 56,
@@ -183,7 +191,6 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              // X 버튼 동작 막음 (닫히지 않게)
                               context.pop();
                             },
                             icon: SvgPicture.asset(
@@ -194,10 +201,7 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {
-                              final now = DateTime.now();
-                              _selectDate(DateTime(now.year, now.month, now.day)); // 오늘 선택
-                            },
+                            onPressed: _selectToday, // ← 오늘 선택
                             style: TextButton.styleFrom(foregroundColor: Colors.blue),
                             child: const Text(
                               '오늘',
@@ -219,14 +223,8 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
                     SizedBox(
                       height: calendarHeight,
                       child: Calendar(
-                        onTodayButtonPressed: (date) {
-                          // 오늘 날짜로 이동
-                          print(date);
-                        },
-                        onRangeSelected: (date) {
-                          print(date);
-                        },
-
+                        onTodayButtonPressed: (_) => _selectToday(), // ← 캘린더의 오늘 버튼과도 동기화
+                        onRangeSelected: (date) {},
                         todayButtonText: "오늘",
                         showEventListViewIcon: false,
                         allDayEventText: 'test',
@@ -341,7 +339,7 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
                         isExpanded: true,
                         locale: 'ko_KR',
                         onDateSelected: (DateTime date) {
-                          _selectDate(date); // 선택만 갱신(창은 닫히지 않음)
+                          _selectDate(date);
                         },
                       ),
                     ),
@@ -399,7 +397,6 @@ class DateCenterWithCalendar extends StatelessWidget {
           height: 32,
           child: ElevatedButton(
             onPressed: () {
-              // 스타일 유지. 외부 함수 존재 시 모달 표시
               showBpInputModal(context);
             },
             style: ElevatedButton.styleFrom(
@@ -429,6 +426,8 @@ class BloodPressureInfo extends StatefulWidget {
 }
 
 class _BloodPressureInfoState extends State<BloodPressureInfo> {
+  DateTime _currentDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(375, 812));
@@ -439,55 +438,41 @@ class _BloodPressureInfoState extends State<BloodPressureInfo> {
         children: [
           const IphoneTop(),
 
-          // 상단 앱바(뒤로, 제목, 목록)
           BpAppBar(
             onBack: () => context.go('/'),
             onOpenList: () => showBpLogSheet(context),
           ),
 
-          // 본문
           Expanded(
             child: Container(
               color: Colors.white,
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  // 날짜(중앙 정렬) + 달력 버튼
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: DateCenterWithCalendar(
-                      dateText: DateFormat('yyyy.MM.dd').format(DateTime.now()),
-                      initialDate: DateTime.now(),
+                      dateText: DateFormat('yyyy.MM.dd').format(_currentDate),
+                      initialDate: _currentDate,
                       onDatePicked: (d) {
-                        // TODO: 선택 날짜 반영 setState(...)
-                        DateTime.now();
+                        setState(() {
+                          _currentDate = DateTime(d.year, d.month, d.day);
+                        });
                       },
                     ),
                   ),
-
-                  // 상단 요약(고혈압 단계 / 맥박)
                   const SummaryRow(),
-
-                  // 수축/이완 카드
                   const PressureRow(),
-
-                  // 그래프 섹션
                   const GraphSection(),
-
-                  // 구간 선택(최근/월/년) 자리
                   Container(
                     width: double.infinity,
                     height: 60,
                     color: Colors.white,
                     child: BpSegmentedSwitch(
-                      initialIndex: 0, // 0: 최근, 1: 월, 2: 년
-                      onChanged: (i) {
-                        // TODO: i 값에 따라 목록 갱신
-                      },
+                      initialIndex: 0,
+                      onChanged: (i) {},
                     ),
                   ),
-
-                  // 가이드 패널
                   const GuidancePanel(),
                 ],
               ),
