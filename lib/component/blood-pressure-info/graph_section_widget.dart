@@ -36,6 +36,16 @@ class GraphSection extends StatelessWidget {
               ),
               primaryXAxis: CategoryAxis(),
               primaryYAxis: NumericAxis(
+                // todo 80, 120 숫자 변경
+                axisLabelFormatter: (AxisLabelRenderDetails args) {
+                  if (args.value == 80 || args.value == 120) {
+                    return ChartAxisLabel(
+                      args.text,
+                      const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                    );
+                  }
+                  return ChartAxisLabel(args.text, const TextStyle(color: Colors.black));
+                },
                 // todo 혈압 그래프
                 minimum: 60,
                 maximum: 200,
