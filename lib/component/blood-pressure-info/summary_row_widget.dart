@@ -113,7 +113,6 @@ class _HeartRateCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: const [
                   _BpmText(value: 70),
-                  SizedBox(height: 4),
                   Text(
                     "맥박",
                     style: TextStyle(
@@ -141,27 +140,40 @@ class _BpmText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         children: [
           TextSpan(
-            text: '$value ',
-            style: const TextStyle(
-              color: Color(0xFF0D1B34),
+            text: '${value}',
+            style: TextStyle(
+              color: const Color(0xFF111111),
               fontSize: 20,
               fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w600,
+              height: 1.10,
               letterSpacing: -0.50,
-              fontWeight: FontWeight.w700,
             ),
           ),
-          const TextSpan(
+          TextSpan(
+            text: ' ',
+            style: TextStyle(
+              color: const Color(0xFF0D1B34),
+              fontSize: 20,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w700,
+              height: 1.10,
+              letterSpacing: -0.50,
+            ),
+          ),
+          TextSpan(
             text: 'bpm',
             style: TextStyle(
-              color: Color(0xFF8C8C8C),
+              color: const Color(0xFF505050),
               fontSize: 14,
               fontFamily: 'Pretendard',
-              letterSpacing: -0.35,
               fontWeight: FontWeight.w400,
+              height: 1.57,
+              letterSpacing: -0.35,
             ),
           ),
         ],

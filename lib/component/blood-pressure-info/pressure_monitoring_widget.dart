@@ -131,10 +131,12 @@ class _PressureValue extends StatelessWidget {
               const Text(
                 " mmHg",
                 style: TextStyle(
-                  fontFamily: "Pretendard",
-                  fontWeight: FontWeight.w400,
+                  color: const Color(0xFF505050),
                   fontSize: 14,
-                  letterSpacing: -0.4,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w400,
+                  height: 1.57,
+                  letterSpacing: -0.35,
                 ),
               ),
             ],

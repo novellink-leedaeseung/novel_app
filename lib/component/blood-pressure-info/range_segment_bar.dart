@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 /// 다색 구간 그래프 바 (세그먼트형)
@@ -12,7 +13,7 @@ class RangeSegmentBar extends StatelessWidget {
     this.radius = 999,
     this.showBorder = true,
     this.indicator,                     // 0.0 ~ 1.0, null이면 표시 안함
-    this.indicatorWidth = 3,
+    this.indicatorWidth = 1.8,
     this.indicatorColor = Colors.black,
     this.shadow = const BoxShadow(
       color: Color(0x26000000),         // 15% 검정
@@ -95,13 +96,14 @@ class RangeSegmentBar extends StatelessWidget {
                       left: (indicator!.clamp(0.0, 1.0)) * c.maxWidth - (indicatorWidth / 2),
                       top: 0,
                       bottom: 7,
-                      child: Container(
-                        width: indicatorWidth,
-                        decoration: BoxDecoration(
-                          color: indicatorColor,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
+                      child: SvgPicture.asset("assets/icon/line.svg"),
+                      // child: Container(
+                      //   width: indicatorWidth,
+                      //   decoration: BoxDecoration(
+                      //     color: indicatorColor,
+                      //     borderRadius: BorderRadius.circular(2),
+                      //   ),
+                      // ),
                     ),
                 ],
               ),

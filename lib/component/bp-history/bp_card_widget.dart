@@ -1,5 +1,7 @@
 // lib/screen/bp/bp_card.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class BpCard extends StatelessWidget {
   const BpCard({
@@ -26,16 +28,21 @@ class BpCard extends StatelessWidget {
     const family = 'Pretendard';
 
     return Container(
+      width: 327.w,
+      height: 150.h,
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: const [
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        shadows: [
           BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.16),
+            color: Color(0x28000000),
+            blurRadius: 2,
             offset: Offset(0, 4),
-            blurRadius: 12,
-          ),
+            spreadRadius: 0,
+          )
         ],
       ),
       child: Row(

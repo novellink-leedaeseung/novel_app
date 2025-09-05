@@ -54,7 +54,7 @@ class DateBarWithCalendarButton extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.zero,
               shape: const CircleBorder(),
-              backgroundColor: const Color(0xFF227EFF),
+              // backgroundColor: const Color(0xFF227EFF),
               shadowColor: Colors.black.withOpacity(0.15),
               elevation: 4,
             ),
