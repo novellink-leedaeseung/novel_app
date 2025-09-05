@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class GuidancePanel extends StatelessWidget {
   const GuidancePanel({super.key});
 
@@ -16,34 +17,32 @@ class GuidancePanel extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
           color: const Color(0xFFE2E2E2),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Container(
-            child: Column(
-              children: const [
-                _GuideTitleRow(),
-                SizedBox(height: 24),
-                _GuideLine(
-                  leading: "•  혈압은 ",
-                  highlight: "고혈압1기",
-                  trailing: " 입니다.",
-                ),
-                SizedBox(height: 8),
-                _GuideLine(
-                  leading: "•  수축기 혈압은 적정범위까지 ",
-                  highlight: "-61",
-                  trailing: " 남았습니다.",
-                ),
-                SizedBox(height: 8),
-                _GuideLine(
-                  leading: "•  이완기 혈압은 적정범위까지 ",
-                  highlight: "-9",
-                  trailing: " 남았습니다.",
-                ),
-              ],
-            ),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              _GuideTitleRow(),
+              SizedBox(height: 24),
+              _GuideLine(
+                leading: " •  혈압은 ",
+                highlight: "고혈압1기",
+                trailing: " 입니다.",
+              ),
+              _GuideLine(
+                leading: " •  수축기 혈압은 적정범위까지 ",
+                highlight: "-61",
+                trailing: " 남았습니다.",
+              ),
+              _GuideLine(
+                leading: " •  이완기 혈압은 적정범위까지 ",
+                highlight: "-9",
+                trailing: " 남았습니다.",
+              ),
+            ],
           ),
         ),
       ),
@@ -56,25 +55,27 @@ class _GuideTitleRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 26),
-        child: Text.rich(
-          TextSpan(
-            children: [
-              _t('정상 혈압 범위는 ', bold: true),
-              _t('120/80', color: Color(0xFF227EFF), bold: true),
-              _t(' ', bold: true),
-              _t('mmHg'),
-              _t(' 미만입니다.', bold: true),
-            ],
-          ),
+    return Container(
+      margin: EdgeInsets.only(top: 15, left: 26),
+      child: Text.rich(
+        TextSpan(
+          children: [
+            _t('정상 혈압 범위는 ', bold: true),
+            _t('120/80', color: Color(0xFF227EFF), bold: true),
+            _t(' ', bold: true),
+            _t('mmHg'),
+            _t(' 미만입니다.', bold: true),
+          ],
         ),
       ),
     );
   }
 
-  static TextSpan _t(String text, {Color color = const Color(0xFF0D1B34), bool bold = false}) {
+  static TextSpan _t(
+    String text, {
+    Color color = const Color(0xFF0D1B34),
+    bool bold = false,
+  }) {
     return TextSpan(
       text: text,
       style: TextStyle(
@@ -102,8 +103,10 @@ class _GuideLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 275.w,
+    return Container(
+      width: 294.w,
+      height: 24.h,
+      margin: EdgeInsets.only(left: 16, top:8),
       child: Text.rich(
         TextSpan(
           children: [
@@ -113,13 +116,21 @@ class _GuideLine extends StatelessWidget {
                 color: Color(0xFF616161),
                 fontSize: 16,
                 fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 height: 1.5,
                 letterSpacing: -0.4,
               ),
             ),
             const TextSpan(
               text: '',
+              style: TextStyle(
+                color: const Color(0xFF616161),
+                fontSize: 16,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w600,
+                height: 1.50,
+                letterSpacing: -0.40,
+              ),
             ),
             TextSpan(
               text: highlight,
@@ -135,10 +146,10 @@ class _GuideLine extends StatelessWidget {
             TextSpan(
               text: trailing,
               style: const TextStyle(
-                color: Color(0xFF616161),
+                color: Color(0xFF767676),
                 fontSize: 16,
                 fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 height: 1.5,
                 letterSpacing: -0.4,
               ),
